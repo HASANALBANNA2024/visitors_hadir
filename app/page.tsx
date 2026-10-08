@@ -60,7 +60,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            MD. Hasan al banna 
+            sohag sarkar 
           </a>
         </div>
       </main>
