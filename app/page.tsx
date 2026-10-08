@@ -60,7 +60,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            sohag sarkar ahmed afsana
+            I Love You
           </a>
         </div>
       </main>
