@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [ main ] # master/main file
-
+# CI/CD Pipeline will be triggered on push to the main branch is pushed
 jobs:
   deploy:
     runs-on: ubuntu-latest
