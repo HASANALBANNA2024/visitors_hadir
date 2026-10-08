@@ -23,4 +23,5 @@ jobs:
             pm2 restart all
 
 
-            #for testing purposes, you can use the following command to check if the deployment was successful
+            #for testing purposes, you can use the following command to
+            # check if the deployment was successful
