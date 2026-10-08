@@ -2,23 +2,25 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ] # master/main file
-# CI/CD Pipeline will be triggered on push to the main branch is pushed
+    branches: [ main ]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       - name: Deploy to Oracle Cloud Server
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script_stop: true
           script: |
-            cd /root/hadir_visitors_website/visitors_hadir
+            cd /home/ubuntu/hadir_visitors_website/visitors_hadir
             git pull origin main
-            npm install
+            npm ci
+            npm run build
             pm2 restart all
+
+
+            #for testing purposes, you can use the following command to check if the deployment was successful
