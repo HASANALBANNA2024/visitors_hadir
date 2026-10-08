@@ -60,7 +60,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Documentation
+            MD. Hasan al banna 
           </a>
         </div>
       </main>
