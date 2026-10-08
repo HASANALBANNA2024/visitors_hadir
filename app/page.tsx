@@ -60,7 +60,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            I Love You
+            I Love You Afsana 
           </a>
         </div>
       </main>
