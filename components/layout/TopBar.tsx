@@ -28,11 +28,14 @@ export default function TopBar() {
             <ContactIcon name="mail" />{SITE.bookingEmail}
           </a>
         </div>
-        <div className="topbar-support">
-          <ContactIcon name="clock" />
-          {t(UI.support.text)}
+        {/* Support text + language button: grouped on the right, side by side */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div className="topbar-support">
+            <ContactIcon name="clock" />
+            {t(UI.support.text)}
+          </div>
+          <LanguageToggle />
         </div>
-        <LanguageToggle />
       </div>
     </div>
   );
