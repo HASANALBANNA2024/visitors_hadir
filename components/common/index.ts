@@ -9,3 +9,4 @@ export { default as ImageSlot } from './ImageSlot';
 export { default as Stars } from './Stars';
 export { default as TextField } from './TextField';
 export { default as SelectField } from './SelectField';
+export { default as ContactIcon } from './ContactIcon';

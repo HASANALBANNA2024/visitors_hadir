@@ -29,6 +29,7 @@ import './footer.css';
 import './floating.css';
 import './extras.css';
 import './extras-2.css';
+import './contact-icons.css';
 import './responsive.css';
 import './responsive-2.css';
 import './responsive-3.css';

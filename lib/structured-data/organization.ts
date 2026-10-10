@@ -19,6 +19,12 @@ export const organizationLd = () => ({
     contactType: 'customer service',
     areaServed: SITE.countryCode,
     availableLanguage: ['English', 'Arabic'],
+  }, {
+    '@type': 'ContactPoint', // second contact: reservations
+    email: SITE.bookingEmail,
+    contactType: 'reservations',
+    areaServed: SITE.countryCode,
+    availableLanguage: ['English', 'Arabic'],
   }],
   ...(SOCIAL_LINKS.length ? { sameAs: SOCIAL_LINKS.map((s) => s.href) } : {}),
 });

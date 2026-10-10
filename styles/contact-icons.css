@@ -1,0 +1,7 @@
+/* CONTACT ICONS: gold icon files (public/images/icons) in the top strip and footer */
+.c-icon { width: 1.15em; height: 1.15em; flex: none; margin-inline-end: 0.45rem; }
+.contact-info a, .footer-section li a, .topbar-support { display: inline-flex; align-items: center; }
+/* Social icons are bigger and have no text next to them */
+.footer-social a { display: inline-flex; align-items: center; }
+.footer-social .c-icon { width: 26px; height: 26px; margin: 0; transition: transform 0.3s; }
+.footer-social a:hover .c-icon { transform: translateY(-3px); }

@@ -1,12 +1,11 @@
 'use client';
 /* ==========================================================
  * TopBar: thin strip ABOVE the fixed app bar
- * (phone, email, support text, language button)
- * It is a normal block, so it scrolls away when the page is
- * scrolled and appears again at the top.
- * Data: data/site.ts, data/ui.ts
+ * (phone, emails, support text, language button).
+ * It is a normal block, so it scrolls away with the page and
+ * appears again at the top. Data: data/site/site.ts, data/ui/
  * ========================================================== */
-import { Icon } from '@/components/common';
+import { ContactIcon } from '@/components/common';
 import { useLang } from '@/hooks/useLang';
 import { SITE } from '@/data/site';
 import { UI } from '@/data/ui';
@@ -18,11 +17,19 @@ export default function TopBar() {
     <div className="header-top">
       <div className="header-top-content">
         <div className="contact-info">
-          <a href={SITE.phoneHref} dir="ltr"><Icon symbol="📞" />{SITE.phoneDisplay}</a>
-          <a className="topbar-email" href={`mailto:${SITE.email}`} dir="ltr"><Icon symbol="✉️" />{SITE.email}</a>
+          {/* Phone */}
+          <a href={SITE.phoneHref} dir="ltr"><ContactIcon name="phone" />{SITE.phoneDisplay}</a>
+          {/* General email (hidden on small phones, see responsive css) */}
+          <a className="topbar-email" href={`mailto:${SITE.email}`} dir="ltr">
+            <ContactIcon name="mail" />{SITE.email}
+          </a>
+          {/* Booking email */}
+          <a className="topbar-email" href={`mailto:${SITE.bookingEmail}`} dir="ltr">
+            <ContactIcon name="mail" />{SITE.bookingEmail}
+          </a>
         </div>
         <div className="topbar-support">
-          <Icon symbol={UI.support.icon} />
+          <ContactIcon name="clock" />
           {t(UI.support.text)}
         </div>
         <LanguageToggle />

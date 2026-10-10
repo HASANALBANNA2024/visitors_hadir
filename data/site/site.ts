@@ -14,6 +14,7 @@ export const SITE = {
   /** WhatsApp number: digits only, country code first, no + */
   whatsappNumber: '96596770078',
   email: 'info@hadirvisitors.com',
+  bookingEmail: 'booking@hadirvisitors.com',
   countryCode: 'KW',
   city: L('Kuwait City', 'مدينة الكويت'),
   streetAddress: '', // optional, helps local SEO
