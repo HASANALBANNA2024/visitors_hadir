@@ -26,7 +26,7 @@ export default function HomePage() {
         <Features /> {/* 3. feature boxes */}
         <Fleet /> {/* 4. vehicles (filterable) */}
         <WhyChoose /> {/* 5. why HADIR */}
-        <Testimonials /> {/* 6. client reviews */}
+     {/* <Testimonials /> */} {/* 6. client reviews */}
         <Faq /> {/* 7. questions and answers (SEO) */}
         <Cta /> {/* 8. call to action */}
       </main>
