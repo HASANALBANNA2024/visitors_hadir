@@ -1,0 +1,30 @@
+/* ONE font everywhere (headings, buttons, form fields) */
+body, body.ar, button, input, select, textarea {
+  font-family: var(--font-cairo), 'Cairo', Tahoma, Arial, sans-serif;
+}
+/* Hero picture stays clear: light, short overlay only behind the text */
+.hero-slider-overlay {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.45) 45%, rgba(255, 255, 255, 0) 100%);
+}
+body.ar .hero-slider-overlay {
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.45) 45%, rgba(255, 255, 255, 0) 100%);
+}
+/* Hero text sits on a soft glass panel so it is always readable */
+.hero-text {
+  background: rgba(255, 255, 255, 0.72); padding: 2rem; border-radius: 16px;
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+}
+.hero-text p { color: #333; font-weight: 600; }
+.hero-text h1 { -webkit-text-fill-color: initial; background: none; color: var(--dark-navy); }
+/* Booking card: solid white, strong text, clear borders */
+.quick-request-form { background: #fff; border-color: #d9d9d9; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18); }
+.form-label { color: #8a6d0b; }
+.form-description { color: #444; }
+.form-group input, .form-group select { border-color: #bdbdbd; color: #111; font-size: 1rem; }
+.form-group input::placeholder { color: #666; }
+/* Chip: car chosen on a fleet card */
+.selected-vehicle {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.2rem;
+  padding: 0.7rem 1rem; border-radius: 8px; background: #fff7dc; border: 1px solid var(--gold-primary);
+}
+.selected-vehicle button { background: none; border: 0; cursor: pointer; font-size: 1rem; color: #444; }

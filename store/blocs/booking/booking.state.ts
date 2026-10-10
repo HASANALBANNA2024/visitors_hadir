@@ -8,6 +8,7 @@ export interface BookingForm {
   phone: string;
   service: string;
   vehicleClass: string;
+  vehicle: string; // exact car chosen on a fleet card ('' = none)
   pickup: string;
   duration: string;
   passengers: string;
@@ -21,6 +22,6 @@ export interface BookingState {
 }
 
 export const bookingInitialState: BookingState = {
-  form: { name: '', phone: '', service: '', vehicleClass: '', pickup: '', duration: '', passengers: '1' },
+  form: { name: '', phone: '', service: '', vehicleClass: '', vehicle: '', pickup: '', duration: '', passengers: '1' },
   status: 'idle',
 };

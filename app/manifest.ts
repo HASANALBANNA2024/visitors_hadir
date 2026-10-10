@@ -9,8 +9,8 @@ export const dynamic = 'force-static'; // needed for static export (Cloudflare)
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'HADIR | Luxury Mobility Kuwait',
-    short_name: 'HADIR',
+    name: 'HADIR Visitors | Luxury Mobility Kuwait',
+    short_name: 'HADIR Visitors',
     description: SEO.description.en,
     start_url: '/',
     display: 'standalone',

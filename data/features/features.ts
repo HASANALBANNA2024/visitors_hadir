@@ -3,7 +3,7 @@ import { icon, L } from '../helpers';
 
 /* FEATURES SECTION: heading */
 export const FEATURES_INTRO: SectionIntro = {
-  tagline: icon('⚡', L('WHY HADIR STANDS OUT', 'لماذا هادر متميزة')),
+  tagline: icon('⚡', L('WHY HADIR VISITORS STANDS OUT', 'لماذا هادر فيزيتورز متميزة')),
   title: L('Industry-Leading Features', 'المميزات الرائدة في الصناعة'),
 };
 

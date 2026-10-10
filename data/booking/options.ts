@@ -13,6 +13,7 @@ export const VEHICLE_CLASS_OPTIONS: SelectOption[] = [
   { value: 'sedan', icon: '🚗', label: L('Luxury Sedan', 'سيدان فاخرة') },
   { value: 'suv', icon: '🏎️', label: L('Executive SUV', 'SUV تنفيذية') },
   { value: 'van', icon: '🚐', label: L('Premium Van', 'فان متميز') },
+  { value: 'bus', icon: '🚌', label: L('Premium Bus', 'حافلة متميزة') },
 ];
 
 export const DURATION_OPTIONS: SelectOption[] = [

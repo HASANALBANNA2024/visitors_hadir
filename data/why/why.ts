@@ -4,11 +4,11 @@ import { icon, L } from '../helpers';
 /* WHY CHOOSE US: heading (the section has no paragraph) */
 export const WHY_INTRO: SectionIntro = {
   tagline: icon('⚡', L('YOUR COMPETITIVE ADVANTAGE', 'ميزتك التنافسية')),
-  title: L('Why HADIR Leads', 'لماذا هادر الأفضل'),
+  title: L('Why HADIR Visitors Leads', 'لماذا هادر فيزيتورز الأفضل'),
 };
 
 /* Alt text and emoji used for the picture (IMAGES.whyChoose) */
-export const WHY_IMAGE_ALT = L('HADIR luxury chauffeur service in Kuwait', 'خدمة هادر للسائق الفاخر في الكويت');
+export const WHY_IMAGE_ALT = L('HADIR Visitors luxury chauffeur service in Kuwait', 'خدمة هادر فيزيتورز للسائق الفاخر في الكويت');
 export const WHY_IMAGE_EMOJI = '🏆';
 
 /* WHY CHOOSE US: 5 numbered points */

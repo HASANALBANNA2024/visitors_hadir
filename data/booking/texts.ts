@@ -14,5 +14,5 @@ export const BOOKING = {
     '✅ رد في 10 دقائق | ✅ سائقون احترافيون | ✅ أفضل الأسعار',
   ),
   success: L('Thank you! Your request is being sent on WhatsApp.', 'شكراً لك! يتم إرسال طلبك عبر واتس آب.'),
-  greeting: L('Hello HADIR, I would like to book a vehicle.', 'مرحباً هادر، أود حجز سيارة.'),
+  greeting: L('Hello HADIR Visitors, I would like to book a vehicle.', 'مرحباً هادر فيزيتورز، أود حجز سيارة.'),
 };

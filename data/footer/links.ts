@@ -6,7 +6,7 @@ export const FOOTER_QUICK_LINKS: NavLink[] = [
   { label: L('Our Fleet', 'أسطولنا'), href: '#fleet' },
   { label: L('Services', 'الخدمات'), href: '#services' },
   { label: L('Features', 'المميزات'), href: '#features' },
-  { label: L('Why HADIR', 'لماذا هادر'), href: '#why' },
+  { label: L('Why HADIR Visitors', 'لماذا هادر فيزيتورز'), href: '#why' },
 ];
 
 /* FOOTER "SERVICES" column: click = pre-select that service in the form */

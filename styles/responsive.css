@@ -1,10 +1,11 @@
 /* RESPONSIVE: phones, tablets, laptops, big screens This file is loaded LAST, so it can fine-tune every section. Breakpoints:  1280  |  1024 (tablet)  |  768  |  600 (phone)  |  420 (small phone) */
 /* Fluid spacing and text (works on every width) */
 :root {
-  --page-pad: clamp(1rem, 4vw, 3rem); --pad-l: max(var(--page-pad), env(safe-area-inset-left, 0px));
+  --page-max: 2000px; /* widest content (big monitors) */
+  --page-pad: max(5vw, calc((100vw - var(--page-max)) / 2)); /* side space = 5% (content = 90% of screen) */ --pad-l: max(var(--page-pad), env(safe-area-inset-left, 0px));
   --pad-r: max(var(--page-pad), env(safe-area-inset-right, 0px));
 }
-.header-top-content, .header-main, .hero-content { padding-left: var(--pad-l); padding-right: var(--pad-r); }
+.header-top-content, .header-main, .hero-content { max-width: none; padding-left: var(--pad-l); padding-right: var(--pad-r); }
 .header-main { padding-top: 1.1rem; padding-bottom: 1.1rem; }
 .services, .features, .fleet, .why-choose, .testimonials {
   padding: clamp(3.5rem, 8vw, 6rem) var(--pad-r) clamp(3.5rem, 8vw, 6rem) var(--pad-l);

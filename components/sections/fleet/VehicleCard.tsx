@@ -16,7 +16,7 @@ export default function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
   const { events } = useBookingBloc();
 
   const onReserve = () => {
-    events.vehiclePreselected(vehicle.type);
+    events.vehiclePreselected(vehicle.type, vehicle.name);
     scrollToId('booking');
   };
 

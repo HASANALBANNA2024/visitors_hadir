@@ -8,7 +8,7 @@
 export const IMAGES = {
   /** Square logo in the header (replaces the "H" box) */
   logo: '',
-  /** Picture of the "Why HADIR" section (replaces the trophy) */
+  /** Picture of the "Why HADIR Visitors" section (replaces the trophy) */
   whyChoose: '',
   /** Picture shown when the link is shared (1200x630) */
   ogImage: '/og-image.png',

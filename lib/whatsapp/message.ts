@@ -14,6 +14,7 @@ export function buildBookingMessage(form: BookingForm, lang: Lang): string {
     line(FIELDS.service.label, labelOf(SERVICE_OPTIONS, form.service, lang)),
     line(FIELDS.vehicleClass.label, labelOf(VEHICLE_CLASS_OPTIONS, form.vehicleClass, lang)),
   ];
+  if (form.vehicle) lines.push(`${lang === 'ar' ? 'السيارة' : 'Vehicle'}: ${form.vehicle}`);
   if (form.pickup) lines.push(line(FIELDS.pickup.label, form.pickup)); // optional field
   lines.push(line(FIELDS.duration.label, labelOf(DURATION_OPTIONS, form.duration, lang)));
   lines.push(line(FIELDS.passengers.label, form.passengers));

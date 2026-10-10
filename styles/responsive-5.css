@@ -29,10 +29,6 @@
     transform: none;
   }
 }
-/* Big screens */
-@media (min-width: 1700px) {
-  .hero-content { max-width: 1700px; }
-}
 /* Accessibility: people who turned off animations */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

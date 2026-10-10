@@ -1,9 +1,7 @@
 'use client';
 /* ==========================================================
- * BOOKING BLOC: HOOK
- *   const { state, events, submit } = useBookingBloc();
- *   events.fieldChanged('name', 'Ali');
- *   submit();   // opens WhatsApp with the booking message
+ * BOOKING BLOC: HOOK -> const { state, events, submit }
+ * submit() opens WhatsApp with the booking message
  * ========================================================== */
 import { useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
@@ -21,13 +19,14 @@ export function useBookingBloc() {
   const events = useMemo(
     () => ({
       fieldChanged: (field: keyof BookingForm, value: string) => dispatch(BookingEvents.fieldChanged({ field, value })),
-      /** Pre-select a vehicle class (used by the "Reserve now" button on vehicle cards) */
-      vehiclePreselected: (vehicleType: string) => {
+      /** Pre-select a vehicle class + exact car (used by the "Reserve now" button on vehicle cards) */
+      vehiclePreselected: (vehicleType: string, vehicleName = '') => {
+        dispatch(BookingEvents.fieldChanged({ field: 'vehicle', value: vehicleName }));
         if (VEHICLE_CLASS_OPTIONS.some((o) => o.value === vehicleType)) {
           dispatch(BookingEvents.fieldChanged({ field: 'vehicleClass', value: vehicleType }));
         }
       },
-      /** Pre-select a service (used by the footer service links) */
+      /** Pre-select a service (footer service links) */
       servicePreselected: (service: string) => {
         if (SERVICE_OPTIONS.some((o) => o.value === service)) {
           dispatch(BookingEvents.fieldChanged({ field: 'service', value: service }));

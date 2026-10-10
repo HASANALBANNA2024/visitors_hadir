@@ -10,6 +10,7 @@ import BookingSubmit from './BookingSubmit';
 import DetailsRow from './DetailsRow';
 import IdentityRow from './IdentityRow';
 import PickupRow from './PickupRow';
+import SelectedVehicle from './SelectedVehicle';
 import ServiceRow from './ServiceRow';
 
 export default function BookingForm() {
@@ -24,6 +25,7 @@ export default function BookingForm() {
     <div className="quick-request-form" id="booking">
       <BookingHeader />
       <form onSubmit={onSubmit}>
+        <SelectedVehicle />
         <IdentityRow />
         <ServiceRow />
         <PickupRow />

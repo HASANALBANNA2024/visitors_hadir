@@ -16,6 +16,6 @@ export const UI = {
   sliderDot: L('Show picture', 'عرض الصورة'),
   backToTop: L('Back to top', 'العودة للأعلى'),
   whatsappFloat: L('Chat on WhatsApp', 'تواصل عبر واتس آب'),
-  logoLabel: L('HADIR home', 'هادر - الصفحة الرئيسية'),
+  logoLabel: L('HADIR Visitors home', 'هادر فيزيتورز - الصفحة الرئيسية'),
   starsLabel: L('Rated 5 out of 5 stars', 'تقييم 5 من 5 نجوم'),
 };
