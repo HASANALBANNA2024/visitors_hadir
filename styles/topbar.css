@@ -20,4 +20,4 @@
 .language-toggle:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3); }
 /* Phone + emails stay left; support text sits right next to the language button */
 .header-top-content { justify-content: flex-start; }
-.contact-info { margin-inline-end: auto; }
+.contact-info { margin-inline-start: auto; }
