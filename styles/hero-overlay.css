@@ -1,12 +1,13 @@
 /* HERO OVERLAY: very light layer, the picture stays clear */
 .hero-slider-overlay {
   position: absolute; inset: 0; z-index: 3;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 45%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0) 100%);
+}
 body.ar .hero-slider-overlay {
-    background: linear-gradient(270deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 45%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0) 100%);
 }
 /* Glow circles of the hero stay above the pictures */
 .hero::before, .hero::after { z-index: 1; }
 @media (max-width: 1024px) {
-    .hero-slider-overlay, body.ar .hero-slider-overlay { background: rgba(255, 255, 255, 0.05); }
+  .hero-slider-overlay, body.ar .hero-slider-overlay { background: rgba(255, 255, 255, 0.1); }
 }
