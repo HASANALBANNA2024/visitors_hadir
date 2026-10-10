@@ -13,7 +13,7 @@ export const FOOTER = {
   availableText: L('24/7 Available', 'متوفر 24/7'),
   socialTitle: L('Follow us', 'تابعنا'),
   copyright: L(
-    "© {year} HADIR | Kuwait's Premier Corporate Transportation | All rights reserved",
+    "© {year} HADIR VISITORS | Kuwait's Premier Corporate Transportation | All rights reserved",
     '© {year} هادر | أفضل خدمة نقل شركي في الكويت | جميع الحقوق محفوظة',
   ),
 };
