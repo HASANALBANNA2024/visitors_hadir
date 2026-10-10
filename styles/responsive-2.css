@@ -1,0 +1,22 @@
+/* Tablet (< 1024px) */
+@media (max-width: 1024px) {
+  .hero { min-height: 0; padding: 3rem 0 5rem; }
+  .hero-content { gap: 2.5rem; }
+  .quick-request-form { width: 100%; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .why-choose-content { gap: 2.5rem; }
+  .why-choose-image { height: 380px; }
+  /* App bar: logo + menu button, the links open as a panel */
+  .header-main { flex-wrap: wrap; gap: 0.75rem; }
+  .menu-toggle {
+    display: inline-flex; align-items: center; justify-content: center; margin-inline-start: auto;
+  }
+  nav {
+    display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 0; margin: 0;
+    padding: 0.25rem 0 1rem; border-top: 1px solid var(--border-light); max-height: calc(100vh - 120px);
+    max-height: calc(100dvh - 120px); overflow-y: auto; overscroll-behavior: contain;
+  }
+  nav.open { display: flex; }
+  nav a { padding: 0.9rem 0.25rem; border-bottom: 1px solid var(--border-light); font-size: 1.02rem; }
+  nav a::after { display: none; }
+  .book-now-btn { margin-top: 1rem; width: 100%; padding: 1rem; }
+}

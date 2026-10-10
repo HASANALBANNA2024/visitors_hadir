@@ -1,0 +1,35 @@
+/* Phone (< 600px) */
+@media (max-width: 600px) {
+  .header-main { padding-top: 0.8rem; padding-bottom: 0.8rem; }
+  .topbar-email { display: none; }
+  .hero { padding: 2rem 0 4.5rem; }
+  .hero-text .tagline {
+    font-size: 0.72rem; letter-spacing: 1px; line-height: 1.5; padding: 0.55rem 1rem; border-radius: 22px;
+    margin-bottom: 1.25rem;
+  }
+  .hero-text h1 { margin-bottom: 1rem; }
+  /* Hero buttons: full width, easy to tap */
+  .hero-buttons { flex-direction: column; align-items: stretch; margin-bottom: 2rem; }
+  .btn-primary, .btn-secondary { width: 100%; padding: 1.05rem 1.5rem; }
+  /* Form: one column */
+  .quick-request-form { padding: 1.5rem 1.15rem; border-radius: 14px; }
+  .form-header { margin-bottom: 1.5rem; }
+  .form-row { grid-template-columns: 1fr; gap: 1rem; }
+  .form-group input, .form-group select { font-size: 1rem; }
+  /* 16px stops iPhone zoom on focus */
+  .form-submit-btn { width: 100%; }
+  .service-card { padding: 2rem 1.25rem; }
+  .feature-item { padding: 1.5rem; }
+  .why-choose-image { height: 240px; }
+  .why-choose-icon { width: 42px; height: 42px; font-size: 1.2rem; flex-shrink: 0; }
+  .testimonial-card { padding: 1.5rem; }
+  .cta .btn-primary { width: 100%; }
+  .footer-bottom { font-size: 0.82rem; padding-top: 1.75rem; }
+  .footer-social { justify-content: center; }
+  .float-btn { width: 48px; height: 48px; }
+  .floating-actions {
+    inset-inline-end: max(0.9rem, env(safe-area-inset-right, 0px));
+    bottom: max(0.9rem, env(safe-area-inset-bottom, 0px));
+  }
+  .hero-dots { bottom: 0.9rem; }
+}

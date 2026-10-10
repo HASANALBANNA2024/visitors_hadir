@@ -1,0 +1,20 @@
+/* FLOATING BUTTONS: WhatsApp + back to top (bottom corner; right in English, left in Arabic) */
+.floating-actions {
+  position: fixed; inset-inline-end: max(1.25rem, env(safe-area-inset-right, 0px));
+  bottom: max(1.25rem, env(safe-area-inset-bottom, 0px)); z-index: 900; display: flex; flex-direction: column;
+  align-items: center; gap: 0.8rem;
+}
+.float-btn {
+  width: 54px; height: 54px; border: none; border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; color: var(--bg-white); cursor: pointer; text-decoration: none;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+.float-btn:hover { transform: translateY(-4px); }
+.float-whatsapp { background: #25d366; }
+.float-top {
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-accent)); font-size: 1.5rem;
+  font-weight: 800; line-height: 1; opacity: 0; visibility: hidden; transform: translateY(12px);
+}
+.float-top.visible { opacity: 1; visibility: visible; transform: none; }
+.float-top.visible:hover { transform: translateY(-4px); }

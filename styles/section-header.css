@@ -1,0 +1,25 @@
+/* SECTION HEADER: tagline, title, description (shared by many sections) */
+.section-header {
+  text-align: center; margin-bottom: 4rem; max-width: 1600px; margin-left: auto; margin-right: auto;
+  position: relative; z-index: 1;
+}
+.section-tagline {
+  color: var(--gold-accent); font-size: 0.9rem; letter-spacing: 2.5px; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease;
+}
+.section-title {
+  font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease 0.1s backwards;
+  letter-spacing: -0.5px; color: var(--text-dark);
+}
+.section-description {
+  color: var(--text-gray); font-size: 1.15rem; max-width: 700px; margin: 0 auto;
+  animation: fadeInUp 0.8s ease 0.2s backwards; font-weight: 500; line-height: 1.7;
+}
+/* Responsive */
+@media (max-width: 1024px) {
+  .section-title { font-size: 2.2rem; }
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title { font-size: 2rem; }
+}

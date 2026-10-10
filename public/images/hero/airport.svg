@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#a9c7e6"/><stop offset="0.55" stop-color="#e8f0f6"/><stop offset="1" stop-color="#fbeccb"/>
+</linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#7fa3c6"/><stop offset="1" stop-color="#2b4a6e"/>
+</linearGradient>
+<linearGradient id="tarmac" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#c9ced6"/><stop offset="1" stop-color="#8d95a2"/>
+</linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+ <stop offset="0" stop-color="#D4AF37"/><stop offset="1" stop-color="#E8A84D"/>
+</linearGradient>
+</defs>
+<rect width="1920" height="1080" fill="url(#sky)"/>
+<!-- soft clouds -->
+<g fill="#ffffff" opacity="0.75">
+ <ellipse cx="380" cy="190" rx="190" ry="34"/><ellipse cx="520" cy="170" rx="130" ry="30"/>
+ <ellipse cx="1450" cy="130" rx="220" ry="36"/><ellipse cx="1600" cy="108" rx="140" ry="28"/>
+</g>
+<!-- control tower -->
+<g>
+ <rect x="1560" y="250" width="70" height="560" fill="#dfe4ea"/>
+ <rect x="1520" y="200" width="150" height="70" rx="12" fill="url(#glass)"/>
+ <rect x="1535" y="180" width="120" height="24" rx="8" fill="#c3cad3"/>
+ <rect x="1593" y="110" width="4" height="72" fill="#8d95a2"/>
+</g>
+<!-- terminal building -->
+<g>
+ <path d="M0 640 L0 520 Q400 440 960 500 Q1320 540 1500 600 L1500 780 L0 780 Z" fill="#eef1f5"/>
+ <path d="M0 640 Q400 560 960 610 Q1320 645 1500 700 L1500 780 L0 780 Z" fill="url(#glass)" opacity="0.92"/>
+ <g stroke="#ffffff" stroke-width="3" opacity="0.55">
+  <path d="M160 590 V780 M340 575 V780 M520 575 V780 M700 585 V780 M880 600 V780 M1060 620 V780 M1240 650 V780"/>
+ </g>
+ <rect x="0" y="770" width="1500" height="14" fill="url(#gold)"/>
+</g>
+<!-- tarmac + runway -->
+<rect x="0" y="780" width="1920" height="300" fill="url(#tarmac)"/>
+<g fill="#ffffff" opacity="0.85">
+ <rect x="80" y="905" width="170" height="12"/><rect x="330" y="905" width="170" height="12"/>
+ <rect x="580" y="905" width="170" height="12"/><rect x="830" y="905" width="170" height="12"/>
+ <rect x="1080" y="905" width="170" height="12"/><rect x="1330" y="905" width="170" height="12"/>
+ <rect x="1580" y="905" width="170" height="12"/>
+</g>
+<rect x="0" y="962" width="1920" height="8" fill="url(#gold)" opacity="0.8"/>
+<!-- airplane -->
+<g transform="translate(980 690)">
+ <path d="M-330 40 Q-340 -10 -250 -22 L250 -22 Q380 -22 430 28 Q380 78 250 78 L-250 78 Q-330 78 -330 40 Z" fill="#ffffff"/>
+ <path d="M-330 40 Q-340 -10 -250 -22 L-250 78 Q-330 78 -330 40 Z" fill="#eef1f5"/>
+ <path d="M-250 -22 L-300 -150 L-230 -150 L-130 -22 Z" fill="url(#gold)"/>
+ <path d="M-60 58 L-210 190 L-120 190 L90 58 Z" fill="#dfe4ea"/>
+ <rect x="-240" y="16" width="620" height="8" fill="url(#gold)"/>
+ <g fill="#2b4a6e"><circle cx="-190" cy="32" r="9"/><circle cx="-140" cy="32" r="9"/><circle cx="-90" cy="32" r="9"/><circle cx="-40" cy="32" r="9"/><circle cx="10" cy="32" r="9"/><circle cx="60" cy="32" r="9"/><circle cx="110" cy="32" r="9"/><circle cx="160" cy="32" r="9"/></g>
+ <path d="M300 22 Q380 16 410 36 Q380 46 300 40 Z" fill="#2b4a6e"/>
+ <ellipse cx="-6" cy="112" rx="70" ry="26" fill="#c3cad3"/>
+ <ellipse cx="-6" cy="108" rx="62" ry="20" fill="#eef1f5"/>
+</g>
+<!-- ground shadow of the plane -->
+<ellipse cx="1000" cy="800" rx="420" ry="16" fill="#000" opacity="0.12"/>
+</svg>

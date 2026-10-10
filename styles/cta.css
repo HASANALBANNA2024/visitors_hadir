@@ -1,0 +1,19 @@
+/* CALL TO ACTION SECTION */
+.cta {
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-accent)); padding: 5rem 3rem;
+  text-align: center; position: relative; overflow: hidden; color: var(--bg-white);
+}
+.cta-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+.cta h2 {
+  font-size: 3rem; margin-bottom: 1.5rem; font-weight: 800; letter-spacing: -0.5px; color: var(--bg-white);
+}
+.cta p {
+  font-size: 1.2rem; color: rgba(255, 255, 255, 0.95); margin-bottom: 3rem; font-weight: 500;
+  line-height: 1.7;
+}
+.cta .btn-primary { background: var(--bg-white); color: var(--gold-primary); }
+.cta .btn-primary:hover { background: var(--bg-light); }
+/* Responsive */
+@media (max-width: 768px) {
+  .cta h2 { font-size: 2rem; }
+}

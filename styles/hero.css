@@ -1,0 +1,44 @@
+/* HERO SECTION: title, text, buttons, stats */
+.hero {
+  position: relative; min-height: 750px; display: flex; align-items: center; justify-content: center;
+  overflow: hidden; padding: 4rem 0; background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+}
+.hero::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(232, 168, 77, 0.08) 0%, transparent 70%); border-radius: 50%;
+  pointer-events: none;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -200px; left: -200px; width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%); border-radius: 50%;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative; z-index: 2; max-width: 1600px; width: 100%; display: grid;
+  grid-template-columns: 1fr 1.1fr; gap: 5rem; padding: 0 3rem; align-items: center;
+}
+body.ar .hero-content { direction: rtl; }
+.hero-text h1 {
+  font-size: 4.5rem; line-height: 1.15; margin-bottom: 1.5rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--dark-navy) 0%, var(--gold-primary) 50%, var(--gold-accent) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: fadeInUp 1s ease; letter-spacing: -0.5px;
+}
+.hero-text .tagline {
+  display: inline-block; color: var(--gold-primary); font-size: 0.9rem; letter-spacing: 2.5px;
+  margin-bottom: 2rem; font-weight: 700; text-transform: uppercase; background: rgba(232, 168, 77, 0.1);
+  padding: 0.8rem 1.5rem; border-radius: 50px; border: 2px solid var(--gold-accent);
+  animation: fadeInUp 0.8s ease 0.1s backwards;
+}
+.hero-text p {
+  font-size: 1.2rem; color: var(--text-gray); margin-bottom: 2.5rem; line-height: 1.8;
+  animation: fadeInUp 0.8s ease 0.2s backwards; font-weight: 500;
+}
+.hero-buttons {
+  display: flex; gap: 1.5rem; margin-bottom: 4rem; animation: fadeInUp 0.8s ease 0.3s backwards;
+}
+.stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; padding-top: 3rem;
+  border-top: 2px solid var(--border-light); animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+.stat-item { text-align: center; }

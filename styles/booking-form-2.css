@@ -1,0 +1,5 @@
+/* Responsive */
+@media (max-width: 768px) {
+  .quick-request-form { padding: 2rem; }
+  .form-row { grid-template-columns: 1fr; }
+}

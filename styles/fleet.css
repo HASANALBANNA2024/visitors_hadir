@@ -1,0 +1,46 @@
+/* FLEET SECTION: filter tabs and vehicle cards */
+.fleet { padding: 6rem 3rem; background: var(--bg-white); position: relative; overflow: hidden; }
+.filter-tabs {
+  display: flex; justify-content: center; gap: 1rem; margin: 3rem 0; flex-wrap: wrap; position: relative;
+  z-index: 1;
+}
+.filter-tab {
+  background: var(--bg-light); border: 2px solid var(--border-light); color: var(--text-dark);
+  padding: 0.8rem 1.8rem; border-radius: 25px; cursor: pointer; font-weight: 700; font-size: 0.9rem;
+  transition: all 0.3s; letter-spacing: 0.5px;
+}
+.filter-tab:hover, .filter-tab.active {
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-accent)); color: var(--bg-white);
+  border-color: var(--gold-primary); transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+.fleet-grid {
+  max-width: 1600px; margin: 0 auto; display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; position: relative; z-index: 1;
+}
+.vehicle-card {
+  background: var(--bg-white); border-radius: 12px; overflow: hidden; transition: all 0.3s;
+  border: 2px solid var(--border-light); animation: fadeInUp 0.8s ease backwards;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+.vehicle-card:nth-child(1) { animation-delay: 0.1s; }
+.vehicle-card:nth-child(2) { animation-delay: 0.2s; }
+.vehicle-card:nth-child(3) { animation-delay: 0.3s; }
+.vehicle-card:nth-child(4) { animation-delay: 0.4s; }
+.vehicle-card:nth-child(5) { animation-delay: 0.5s; }
+.vehicle-card:nth-child(6) { animation-delay: 0.6s; }
+.vehicle-card:hover {
+  transform: translateY(-12px); border-color: var(--gold-primary);
+  box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+}
+.vehicle-image {
+  position: relative; height: 240px; background: linear-gradient(135deg, #F0F1F3, #E8E9EB); display: flex;
+  align-items: center; justify-content: center; color: var(--text-light); font-size: 3.5rem; overflow: hidden;
+}
+.vehicle-badge {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-accent)); color: var(--bg-white);
+  padding: 0.6rem 1.3rem; border-radius: 8px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1px; box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
+}
+body.ar .vehicle-badge { left: 1.5rem; right: auto; }

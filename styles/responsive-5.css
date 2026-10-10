@@ -1,0 +1,42 @@
+/* Small phone (< 420px) */
+@media (max-width: 420px) {
+  .logo { gap: 0.6rem; }
+  .logo-icon { width: 42px; height: 42px; font-size: 1.25rem; }
+  .logo-text span:first-child { font-size: 1.2rem; }
+  .logo-text span:last-child { font-size: 0.55rem; letter-spacing: 1px; }
+  .menu-toggle { width: 42px; height: 42px; }
+  .stats { gap: 0.5rem; }
+  .stat-label { font-size: 0.66rem; letter-spacing: 0.4px; }
+  .filter-tab { padding: 0.55rem 0.9rem; font-size: 0.76rem; }
+  .vehicle-badge { top: 1rem; right: 1rem; padding: 0.45rem 0.9rem; }
+  body.ar .vehicle-badge { left: 1rem; right: auto; }
+  .section-tagline { letter-spacing: 1.5px; font-size: 0.8rem; }
+}
+/* Very short screens (phones in landscape) */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero { padding: 2rem 0 4rem; }
+  nav { max-height: calc(100vh - 90px); }
+}
+/* Touch screens: no "stuck" hover lift after a tap */
+@media (hover: none) {
+  .service-card:hover,
+  .feature-item:hover,
+  .vehicle-card:hover,
+  .testimonial-card:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .float-btn:hover {
+    transform: none;
+  }
+}
+/* Big screens */
+@media (min-width: 1700px) {
+  .hero-content { max-width: 1700px; }
+}
+/* Accessibility: people who turned off animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important; scroll-behavior: auto !important;
+  }
+}

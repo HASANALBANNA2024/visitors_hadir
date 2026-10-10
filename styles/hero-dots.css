@@ -1,0 +1,14 @@
+/* HERO DOTS: small round buttons under the hero to pick a picture */
+.hero-dots {
+  position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%); z-index: 4; display: flex;
+  align-items: center; gap: 0.55rem; padding: 0.55rem 0.9rem; background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+.hero-dot {
+  position: relative; width: 10px; height: 10px; padding: 0; border: none; border-radius: 999px;
+  background: #c4cad3; cursor: pointer; transition: width 0.4s ease, background 0.4s ease;
+}
+/* Bigger invisible touch area for fingers */
+.hero-dot::before { content: ''; position: absolute; inset: -12px -5px; }
+.hero-dot.active { width: 30px; background: linear-gradient(90deg, var(--gold-primary), var(--gold-accent)); }

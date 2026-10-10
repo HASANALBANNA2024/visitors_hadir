@@ -1,0 +1,25 @@
+/* Big phone / small tablet (< 768px) */
+@media (max-width: 768px) {
+  .header-top { padding: 0.65rem 0; }
+  .header-top-content { flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.2rem; }
+  .contact-info { flex-wrap: wrap; justify-content: center; gap: 0.4rem 1.4rem; }
+  .topbar-support { display: none; }
+  .hero { padding: 2.5rem 0 4.5rem; }
+  .hero-buttons { flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+  .hero-text p { margin-bottom: 2rem; }
+  .stats { gap: 1rem; padding-top: 2rem; }
+  .stat-label { font-size: 0.75rem; letter-spacing: 0.8px; }
+  /* The form keeps two columns between 601 and 768 px */
+  .form-row { grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .quick-request-form { padding: 2rem 1.75rem; }
+  .section-header { margin-bottom: 2.5rem; }
+  .filter-tabs { gap: 0.6rem; }
+  .filter-tab { padding: 0.65rem 1.2rem; font-size: 0.82rem; }
+  .vehicle-image { height: 220px; }
+  .vehicle-info { padding: 1.5rem; }
+  .services-content, .features-grid, .fleet-grid, .testimonials-grid { gap: 1.5rem; }
+  .why-choose-image { height: 300px; }
+  .why-choose-feature { gap: 1.25rem; }
+  .testimonial-card { padding: 2rem; }
+  .footer-content { gap: 2rem; margin-bottom: 2rem; }
+}

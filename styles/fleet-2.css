@@ -1,0 +1,27 @@
+.vehicle-info { padding: 2rem; }
+.vehicle-category {
+  color: var(--gold-accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 1.5px;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.vehicle-name {
+  font-size: 1.4rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-dark); letter-spacing: -0.3px;
+}
+.vehicle-features { list-style: none; margin-bottom: 2rem; font-size: 0.95rem; color: var(--text-gray); }
+.vehicle-features li {
+  padding: 0.5rem 0; padding-left: 1.8rem; position: relative; font-weight: 500; line-height: 1.6;
+}
+body.ar .vehicle-features li { padding-left: 0; padding-right: 1.8rem; }
+.vehicle-features li::before {
+  content: '✓'; position: absolute; left: 0; color: var(--gold-primary); font-weight: 800; font-size: 1.1rem;
+}
+body.ar .vehicle-features li::before { left: auto; right: 0; }
+.request-quote-btn {
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-accent)); color: var(--bg-white);
+  padding: 1rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; font-weight: 700;
+  font-size: 0.95rem; width: 100%; transition: all 0.3s; letter-spacing: 0.5px;
+}
+.request-quote-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(212, 175, 55, 0.3); }
+/* Responsive */
+@media (max-width: 768px) {
+  .fleet-grid { grid-template-columns: 1fr; }
+}

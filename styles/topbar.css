@@ -1,0 +1,20 @@
+/* TOP BAR: phone, email, support text, language button */
+.header-top {
+  background: linear-gradient(90deg, #F8F9FA, #F0F1F3); padding: 1rem 0; font-size: 0.85rem;
+  border-bottom: 1px solid var(--border-light);
+}
+.header-top-content {
+  max-width: 1600px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: space-between;
+  align-items: center; gap: 2rem;
+}
+.contact-info { display: flex; gap: 2.5rem; }
+.contact-info a {
+  color: var(--gold-primary); text-decoration: none; transition: all 0.3s ease; font-weight: 600;
+}
+.contact-info a:hover { color: var(--gold-accent); transform: translateY(-2px); }
+.language-toggle {
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-accent)); color: var(--bg-white);
+  padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: 700; border: none;
+  transition: all 0.3s; font-size: 0.85rem; letter-spacing: 0.5px;
+}
+.language-toggle:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3); }

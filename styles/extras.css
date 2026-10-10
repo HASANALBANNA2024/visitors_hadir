@@ -1,0 +1,43 @@
+/* EXTRAS: small additions needed by the Next.js version (accessibility, header behaviour, image slots, small parts) Responsive rules are in responsive.css */
+/* Base additions */
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; overflow-x: clip; -webkit-font-smoothing: antialiased; }
+img, svg { max-width: 100%; }
+/* Headings keep the original look (h1/h2/h3 are used for SEO) */
+h1, h2, h3, h4 { font: inherit; }
+/* Sections do not hide under the fixed app bar when scrolled to */
+section[id], footer[id] { scroll-margin-top: 100px; }
+/* Keyboard focus ring (accessibility) */
+:focus-visible { outline: 3px solid var(--gold-accent); outline-offset: 3px; }
+/* Skip link (accessibility): hidden above the screen until it gets keyboard focus. (moved with transform, not with a huge negative left, so Arabic RTL pages never scroll sideways) */
+.skip-link {
+  position: absolute; top: 0; inset-inline-start: 1rem; z-index: 3000; transform: translateY(-200%);
+  background: var(--gold-primary); color: var(--bg-white); padding: 0.8rem 1.2rem; border-radius: 0 0 8px 8px;
+  font-weight: 700; text-decoration: none;
+}
+.skip-link:focus { transform: none; }
+/* Fixed app bar ---- The top strip is a normal block above it, so it scrolls away. The app bar is sticky: it stays on top. A shadow shows once scrolled. */
+.header {
+  background: rgba(255, 255, 255, 0.97); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  transition: box-shadow 0.3s ease;
+}
+.header.scrolled { box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1); }
+/* Buttons that are real links */
+a.btn-primary, a.btn-secondary { display: inline-block; text-decoration: none; text-align: center; }
+/* Logo is a link */
+a.logo { color: inherit; text-decoration: none; }
+.logo-icon { position: relative; overflow: hidden; }
+/* Image slots (photos replace emoji placeholders) */
+.why-choose-image { position: relative; overflow: hidden; }
+/* Fleet: message when a tab has no vehicles */
+.fleet-empty {
+  grid-column: 1 / -1; text-align: center; color: var(--text-gray); padding: 3rem 1rem; font-size: 1.05rem;
+}
+/* Booking form: success message */
+.form-success {
+  margin-top: 1rem; padding: 0.9rem 1rem; border-radius: 8px; background: rgba(46, 204, 113, 0.12);
+  color: #1e874b; font-weight: 700; text-align: center; font-size: 0.9rem;
+}
+.form-group input:invalid:not(:placeholder-shown):not(:focus) { border-color: #e0574f; }
+.form-group select { width: 100%; }
+.form-group input, .form-group select { min-width: 0; width: 100%; }

@@ -1,0 +1,15 @@
+/* Footer: social links (only shown when links are filled) */
+.footer-social {
+  max-width: 1600px; margin: 0 auto 2.5rem; display: flex; flex-wrap: wrap; align-items: center;
+  gap: 1rem 1.5rem;
+}
+.footer-social span { color: var(--gold-primary); font-weight: 800; }
+.footer-social a {
+  color: var(--bg-light); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.3s;
+}
+.footer-social a:hover { color: var(--gold-primary); }
+/* Mobile menu button (hidden on desktop, see responsive.css) */
+.menu-toggle {
+  display: none; background: var(--bg-white); border: 2px solid var(--border-light); border-radius: 8px;
+  width: 46px; height: 46px; font-size: 1.4rem; line-height: 1; cursor: pointer; color: var(--text-dark);
+}

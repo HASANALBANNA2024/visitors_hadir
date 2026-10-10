@@ -1,0 +1,12 @@
+/* BASE: reset, colors (CSS variables), body, Arabic body class */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --gold-primary: #D4AF37; --gold-accent: #E8A84D; --dark-navy: #0A1428; --dark-secondary: #1A2A3A;
+  --text-dark: #1A1A1A; --text-gray: #555555; --text-light: #888888; --bg-white: #FFFFFF; --bg-light: #F8F9FA;
+  --bg-light-2: #F0F1F3; --border-light: #E8E8E8; --success-green: #2ECC71;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-white);
+  color: var(--text-dark); line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth;
+}
+body.ar { font-family: var(--font-cairo), 'Cairo', 'Arabic Typesetting', Arial, sans-serif; direction: rtl; }

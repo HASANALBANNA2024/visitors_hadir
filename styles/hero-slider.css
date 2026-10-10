@@ -1,0 +1,43 @@
+/* HERO SLIDER: moving background pictures behind the hero */
+.hero-slider {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; --slide-dir: 1;
+}
+/* Arabic (RTL): pictures travel the other way */
+html[dir='rtl'] .hero-slider { --slide-dir: -1; }
+.hero-slide { position: absolute; inset: 0; will-change: transform, opacity; }
+/* Very slow zoom (Ken Burns) that never stops, so nothing "jumps" */
+.hero-slide img { animation: heroZoom 16s ease-in-out infinite alternate; will-change: transform; }
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+/* Effect "slide": waiting pictures stand outside the screen */
+.hero-slider[data-effect='slide'] .hero-slide {
+  visibility: hidden; transform: translateX(calc(100% * var(--slide-dir)));
+}
+.hero-slider[data-effect='slide'] .hero-slide.active { visibility: visible; transform: none; z-index: 2; }
+.hero-slider[data-effect='slide'] .hero-slide.previous {
+  visibility: visible; z-index: 1; transform: translateX(calc(-100% * var(--slide-dir)));
+}
+/* Animations only run after the first change (first picture is already there) */
+.hero-slider[data-started='true'][data-effect='slide'] .hero-slide.active {
+  animation: heroSlideIn 1.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.hero-slider[data-effect='slide'] .hero-slide.previous {
+  animation: heroSlideOut 1.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+@keyframes heroSlideIn {
+  from { transform: translateX(calc(100% * var(--slide-dir))); }
+  to { transform: none; }
+}
+@keyframes heroSlideOut {
+  from { transform: none; }
+  to { transform: translateX(calc(-100% * var(--slide-dir))); }
+}
+/* Effect "fade": pictures cross-fade */
+.hero-slider[data-effect='fade'] .hero-slide { opacity: 0; transition: opacity 1.6s ease-in-out; }
+.hero-slider[data-effect='fade'] .hero-slide.active { opacity: 1; }
+/* Visitors who prefer less motion get no animation */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide, .hero-slide img { animation: none !important; transition: none !important; }
+}
