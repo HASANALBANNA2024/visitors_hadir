@@ -2,17 +2,19 @@
 body, body.ar, button, input, select, textarea {
   font-family: var(--font-cairo), 'Cairo', Tahoma, Arial, sans-serif;
 }
-/* Hero picture stays clear: light, short overlay only behind the text */
+/* Hero picture stays clear: almost no white layer (text has its own panel) */
 .hero-slider-overlay {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.45) 45%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0) 100%);
 }
 body.ar .hero-slider-overlay {
-  background: linear-gradient(270deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.45) 45%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0) 100%);
+}
+@media (max-width: 1024px) {
+  .hero-slider-overlay, body.ar .hero-slider-overlay { background: rgba(255, 255, 255, 0.1); }
 }
 /* Hero text sits on a soft glass panel so it is always readable */
 .hero-text {
-  background: rgba(255, 255, 255, 0.72); padding: 2rem; border-radius: 16px;
-  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.9); padding: 2rem; border-radius: 16px;
 }
 .hero-text p { color: #333; font-weight: 600; }
 .hero-text h1 { -webkit-text-fill-color: initial; background: none; color: var(--dark-navy); }
@@ -28,3 +30,5 @@ body.ar .hero-slider-overlay {
   padding: 0.7rem 1rem; border-radius: 8px; background: #fff7dc; border: 1px solid var(--gold-primary);
 }
 .selected-vehicle button { background: none; border: 0; cursor: pointer; font-size: 1rem; color: #444; }
+/* No zoom / blur / filter on hero pictures: they stay sharp */
+.hero-slide img { animation: none !important; transform: none !important; filter: none !important; }

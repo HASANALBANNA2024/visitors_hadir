@@ -1,17 +1,13 @@
-/* HERO OVERLAY: soft white layer keeps the dark text readable */
+/* HERO OVERLAY: very light layer, the picture stays clear */
 .hero-slider-overlay {
   position: absolute; inset: 0; z-index: 3;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 42%, rgba(255, 255, 255, 0.5) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0) 100%);
 }
-/* Arabic: text is on the right, so the white layer starts from the right */
 body.ar .hero-slider-overlay {
-  background: linear-gradient(270deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 42%, rgba(255, 255, 255, 0.5) 100%);
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0) 100%);
 }
 /* Glow circles of the hero stay above the pictures */
 .hero::before, .hero::after { z-index: 1; }
-/* Tablet / phone: text is on top of the picture, so the layer is vertical */
 @media (max-width: 1024px) {
-  .hero-slider-overlay, body.ar .hero-slider-overlay {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.93) 0%, rgba(255, 255, 255, 0.82) 100%);
-  }
+  .hero-slider-overlay, body.ar .hero-slider-overlay { background: rgba(255, 255, 255, 0.1); }
 }
