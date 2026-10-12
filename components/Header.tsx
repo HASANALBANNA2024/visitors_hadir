@@ -13,10 +13,11 @@ export default function Header() {
   const isAr = currentLang === 'AR';
 
   return (
-    <header className="w-full font-sans sticky top-0 z-50 bg-white shadow-sm">
+    <header className="w-full font-sans sticky top-0 z-50 bg-white shadow-sm" dir={isAr ? 'rtl' : 'ltr'}>
+      
       {/* Top Bar Section */}
-      <div className="bg-[#f4f5f7] text-[#6b7280] text-xs sm:text-sm py-2 px-4 md:px-8 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto flex justify-between items-center gap-2">
+      <div className="bg-[#f4f5f7] text-[#6b7280] text-xs sm:text-sm py-2 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-2">
           
           {/* Contact Info */}
           <div className="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm">
@@ -50,20 +51,20 @@ export default function Header() {
 
       {/* Main Navigation Header */}
       <div className="border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-3.5 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex justify-between items-center">
           
           {/* Brand Logo */}
           <a href="#home" className="flex items-center gap-3">
             <div className="w-10 h-10 relative flex items-center justify-center rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 p-1">
-  <img
-    src="/images/logo.png" // আপনার লোগোর ফাইল নেم ও পাথ দেবেন
-    alt="HADIR Logo"
-    className="w-full h-full object-contain"
-  />
-</div>
+              <img
+                src="/images/logo.png" 
+                alt="HADIR Logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
             <div>
               <h1 className="text-lg font-extrabold text-gray-900 tracking-wider leading-none uppercase">
-                HADIR VISTIORS
+                HADIR VISITORS
               </h1>
               <p className="text-[9px] text-[#d9a036] tracking-[0.2em] font-bold uppercase mt-0.5">
                 LUXURY MOBILITY
@@ -76,16 +77,16 @@ export default function Header() {
             <a href="#home" className="text-[#d9a036] border-b-2 border-[#d9a036] pb-1">
               {isAr ? 'الرئيسية' : 'Home'}
             </a>
-            <a href="#fleet" className="hover:text-[#d9a036] transition-colors">
+            <a href="#car-gallery" className="hover:text-[#d9a036] transition-colors">
               {isAr ? 'الأسطول' : 'Fleet'}
             </a>
-            <a href="#services" className="hover:text-[#d9a036] transition-colors">
+            <a href="#service-standards" className="hover:text-[#d9a036] transition-colors">
               {isAr ? 'الخدمات' : 'Services'}
             </a>
-            <a href="#features" className="hover:text-[#d9a036] transition-colors">
+            <a href="#industry-features" className="hover:text-[#d9a036] transition-colors">
               {isAr ? 'المميزات' : 'Features'}
             </a>
-            <a href="#why-us" className="hover:text-[#d9a036] transition-colors">
+            <a href="#why-hadir" className="hover:text-[#d9a036] transition-colors">
               {isAr ? 'لماذا نحن' : 'Why Us'}
             </a>
             <a href="#contact" className="hover:text-[#d9a036] transition-colors">
@@ -116,39 +117,32 @@ export default function Header() {
             {isAr ? 'الرئيسية' : 'Home'}
           </a>
           <a
-            href="#fleet"
+            href="#car-gallery"
             onClick={() => setIsMobileMenuOpen(false)}
             className="block text-gray-700 hover:text-[#d9a036] font-medium text-sm py-1"
           >
             {isAr ? 'الأسطول' : 'Fleet'}
           </a>
           <a
-            href="#services"
+            href="#service-standards"
             onClick={() => setIsMobileMenuOpen(false)}
             className="block text-gray-700 hover:text-[#d9a036] font-medium text-sm py-1"
           >
             {isAr ? 'الخدمات' : 'Services'}
           </a>
           <a
-            href="#features"
+            href="#industry-features"
             onClick={() => setIsMobileMenuOpen(false)}
             className="block text-gray-700 hover:text-[#d9a036] font-medium text-sm py-1"
           >
             {isAr ? 'المميزات' : 'Features'}
           </a>
           <a
-            href="#why-us"
+            href="#why-hadir"
             onClick={() => setIsMobileMenuOpen(false)}
             className="block text-gray-700 hover:text-[#d9a036] font-medium text-sm py-1"
           >
             {isAr ? 'لماذا نحن' : 'Why Us'}
-          </a>
-          <a
-            href="#reviews"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-gray-700 hover:text-[#d9a036] font-medium text-sm py-1"
-          >
-            {isAr ? 'التقييمات' : 'Reviews'}
           </a>
           <a
             href="#contact"
@@ -159,7 +153,7 @@ export default function Header() {
           </a>
 
           <a
-            href="#book"
+            href="#book-form"
             onClick={() => setIsMobileMenuOpen(false)}
             className="w-full mt-2 bg-gradient-to-r from-[#e5ab3c] to-[#ca8f28] text-white font-bold px-5 py-2.5 rounded-lg shadow flex items-center justify-center gap-2 text-sm"
           >
