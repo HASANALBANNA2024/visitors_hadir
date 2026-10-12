@@ -6,7 +6,7 @@
 import { useLang } from '@/hooks/useLang';
 import { useMenuBloc } from '@/store/blocs/menu/useMenuBloc';
 import { UI } from '@/data/ui';
-import BookButton from './BookButton';
+// import BookButton from './BookButton';
 import NavLinks from './NavLinks';
 
 export default function NavMenu() {
@@ -16,7 +16,7 @@ export default function NavMenu() {
   return (
     <nav id="main-navigation" className={state.isOpen ? 'open' : undefined} aria-label={t(UI.mainNavigation)}>
       <NavLinks />
-      <BookButton />
+      {/* <BookButton /> */}
     </nav>
   );
 }

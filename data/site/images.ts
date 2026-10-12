@@ -7,7 +7,7 @@
  * ========================================================== */
 export const IMAGES = {
   /** Square logo in the header (replaces the "H" box) */
-  logo: '',
+  logo: '/images/logo.png',
   /** Picture of the "Why HADIR Visitors" section (replaces the trophy) */
   whyChoose: '',
   /** Picture shown when the link is shared (1200x630) */
