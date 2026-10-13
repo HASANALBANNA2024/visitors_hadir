@@ -76,7 +76,7 @@ const VEHICLES: Vehicle[] = [
       categoryLabelAr: 'سيدان تنفيذية',
       badgeEn: 'EXECUTIVE',
       badgeAr: 'تنفيذية',
-      imageSrc: '/images/cargallery/kia-k8.png',
+      imageSrc: '/images/cargallery/sedans/Execuative-Sedan.jpg',
       featuresEn: [
         'Seats up to 5 passengers',
         'Corporate & hotel transfers',
