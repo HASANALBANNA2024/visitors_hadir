@@ -9,7 +9,7 @@ import { RootState } from '../store/store';
 export interface Vehicle {
   id: string;
   name: string;
-  category: 'sedans' | 'suvs' | 'vans' | 'buses';
+  category: 'sedans' | 'suvs' | 'vans' | 'buses'; // new categories add if want
   categoryLabelEn: string;
   categoryLabelAr: string;
   badgeEn: string;
@@ -36,7 +36,7 @@ const VEHICLES: Vehicle[] = [
       categoryLabelAr: 'سيدان فاخرة',
       badgeEn: 'LUXURY',
       badgeAr: 'فاخرة',
-      imageSrc: '/images/cargallery/s-class.png',
+      imageSrc: '/images/cargallery/sedans/Mercedes-Benz-S-Class.jpg',
       featuresEn: [
         'Seats up to 4 passengers',
         'VIP comfort & premium tech',
@@ -198,6 +198,27 @@ const VEHICLES: Vehicle[] = [
       featuresEn: ['Seats up to 45 passengers', 'Large corporate groups', 'Luggage space & Wi-Fi'],
       featuresAr: ['تسع حتى 45 راكباً', 'مجموعات الشركات الكبيرة', 'مساحة أمتعة وواي فاي'],
     },
+    // new categores add 
+//     {
+//   id: '11', // 👈 Obosshoi alada UNIQUE ID dite hobe
+//   name: 'Lamborghini Urus',
+//   category: 'sports', // 👈 Upore define kora category name
+//   categoryLabelEn: 'SUPER SPORTS SUV',
+//   categoryLabelAr: 'سيارة رياضية فائقة',
+//   badgeEn: 'SPORTS',
+//   badgeAr: 'رياضية',
+//   imageSrc: '/images/cargallery/lamborghini.png', // 👈 Public folder-er image path
+//   featuresEn: [
+//     'Seats up to 4 passengers',
+//     'V8 Twin-Turbo performance',
+//     'Ultimate luxury & speed',
+//   ],
+//   featuresAr: [
+//     'تسع حتى 4 ركاب',
+//     'أداء V8 ثنائي التيربو',
+//     'أقصى درجات الفخامة والسرعة',
+//   ],
+// },
   ];
 
 /* Category tabs. id must match a `category` above. */
@@ -207,6 +228,7 @@ const TABS = [
   { id: 'suvs', labelEn: 'SUVS', labelAr: 'دفع رباعي' },
   { id: 'vans', labelEn: 'VANS', labelAr: 'فان' },
   { id: 'buses', labelEn: 'BUSES', labelAr: 'حافلات' },
+  // { id: 'sports', labelEn: 'SPORTS', labelAr: 'سيارات رياضية' }, new categories add 
 ];
 
 /* Which form "Vehicle Class" option each category fills in */
@@ -215,6 +237,7 @@ const CLASS_OF: { [key: string]: string } = {
   suvs: 'Executive SUV',
   vans: 'VIP Van',
   buses: 'Premium Bus',
+  // sports: 'Sports Supercar', new categories add 
 };
 
 export default function CarGallery() {
