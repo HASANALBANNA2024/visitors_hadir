@@ -71,7 +71,7 @@ export default function WhyHadirLeads() {
 
   return (
     <section className="py-16 sm:py-20 bg-gray-50/50" dir={isAr ? 'rtl' : 'ltr'}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[90%] max-w-[2000px] mx-auto">
         
         {/* Section Header */}
         <div className="space-y-2 mb-10 text-center lg:text-left rtl:lg:text-right">
@@ -83,7 +83,7 @@ export default function WhyHadirLeads() {
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight">
-            {isAr ? 'لماذا تتصدر حاضِر' : 'Why HADIR Leads'}
+            {isAr ? 'لماذا تتصدر حاضِر فيزيتورز' : 'Why HADIR VISITORS Leads'}
           </h2>
         </div>
 
@@ -118,7 +118,7 @@ export default function WhyHadirLeads() {
               {!hasImgError ? (
                 <Image
                   src="/images/leads/leads.png"
-                  alt="Why HADIR Leads"
+                  alt="Why HADIR VISITORS Leads"
                   fill
                   className="object-contain p-6 group-hover:scale-105 transition-transform duration-300"
                   onError={() => setHasImgError(true)}

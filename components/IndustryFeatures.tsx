@@ -94,13 +94,13 @@ export default function IndustryFeatures() {
 
   return (
     <section className="py-16 sm:py-20 bg-gray-50/50" dir={isAr ? 'rtl' : 'ltr'}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[90%] max-w-[2000px] mx-auto">
         
         {/* Section Header */}
         <div className="text-center space-y-2 mb-12">
           <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#d9a036]">
             <span>⚡</span>
-            <span>{isAr ? 'لماذا تميزت حاضِر' : 'WHY HADIR STANDS OUT'}</span>
+            <span>{isAr ? 'لماذا تميزت حاضِر فيزيتورز' : 'WHY HADIR VISITORS STANDS OUT'}</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 tracking-tight">

@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* Smooth scrolling for menu / footer links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section ids sit under the sticky menu bar: leave room so titles are not hidden */
+[id] {
+  scroll-margin-top: 80px;
+}

@@ -1,43 +1,104 @@
 'use client';
 
-import { useState } from 'react';
-import { Phone, Mail, Clock, Calendar, Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Phone, Mail, Clock, Menu, X } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { toggleLanguage } from '../store/languageSlice';
 
+/* ============================================================
+ * SITE: the ONE place for phone, emails and social links.
+ * Footer.tsx, Hero.tsx and CarGallery.tsx import it from here.
+ *  - phone / whatsapp: digits only, country code first (no +)
+ *  - social: paste your page link between the quotes
+ *    ('' = icon is hidden, so nothing is broken)
+ * ============================================================ */
+export const SITE = {
+  phoneDisplay: '+965 9677 0078',
+  phoneHref: 'tel:+96596770078', // click = phone call
+  whatsapp: '96596770078', // click = WhatsApp chat
+  email: 'info@hadirvisitors.com', // click = opens the mail app
+  bookingEmail: 'booking@hadirvisitors.com', // click = opens the mail app
+  social: {
+    facebook: '',
+    instagram: '',
+    linkedin: '',
+    x: '',
+  },
+};
+
+/* Menu: href = id of the section on the page (ids are set in app/page.tsx) */
+const MENU = [
+  { href: '#home', en: 'Home', ar: 'الرئيسية' },
+  { href: '#car-gallery', en: 'Fleet', ar: 'الأسطول' },
+  { href: '#service-standards', en: 'Services', ar: 'الخدمات' },
+  { href: '#industry-features', en: 'Features', ar: 'المميزات' },
+  { href: '#why-hadir', en: 'Why Us', ar: 'لماذا نحن' },
+  { href: '#contact', en: 'Contact', ar: 'اتصل بنا' },
+];
+
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [active, setActive] = useState('#home');
   const dispatch = useDispatch();
   const currentLang = useSelector((state: RootState) => state.language.lang);
   const isAr = currentLang === 'AR';
 
+  /* Highlight the menu item of the section that is on screen */
+  useEffect(() => {
+    const onScroll = () => {
+      // active = the section whose top edge is closest above the menu bar
+      let current = '#home';
+      let best = -Infinity;
+      for (const item of MENU) {
+        const top = document.getElementById(item.href.slice(1))?.getBoundingClientRect().top;
+        if (top !== undefined && top <= 140 && top > best) {
+          best = top;
+          current = item.href;
+        }
+      }
+      // page bottom reached: the footer is short, so mark Contact
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = '#contact';
+      setActive(current);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const linkClass = (href: string) =>
+    active === href
+      ? 'text-[#d9a036] border-b-2 border-[#d9a036] pb-1'
+      : 'hover:text-[#d9a036] transition-colors pb-1 border-b-2 border-transparent';
+
   return (
-    <header className="w-full font-sans sticky top-0 z-50 bg-white shadow-sm" dir={isAr ? 'rtl' : 'ltr'}>
-      
-      {/* Top Bar Section */}
-      <div className="bg-[#f4f5f7] text-[#6b7280] text-xs sm:text-sm py-2 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-2">
-          
-          {/* Contact Info */}
-          <div className="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm">
-            <a href="tel:+96596770078" className="flex items-center gap-1 text-[#d9a036] font-medium hover:underline">
+    <>
+      {/* ===== TOP STRIP: normal block (NOT sticky) -> it scrolls away, the menu bar below stays ===== */}
+      <div className="w-full bg-[#f4f5f7] text-[#6b7280] text-xs sm:text-sm py-2 border-b border-gray-100" dir={isAr ? 'rtl' : 'ltr'}>
+        <div className="w-[90%] max-w-[2000px] mx-auto flex justify-between items-center gap-3">
+
+          {/* Left: phone + emails (click = call / mail app) */}
+          <div className="flex items-center gap-3 sm:gap-6">
+            <a href={SITE.phoneHref} dir="ltr" className="flex items-center gap-1.5 text-[#d9a036] font-medium hover:underline">
               <Phone className="w-3.5 h-3.5 fill-current" />
-              <span>+965 9677 0078</span>
+              <span>{SITE.phoneDisplay}</span>
             </a>
-            <a href="mailto:info@hadirvisitors.com" className="hidden sm:flex items-center gap-1.5 text-[#d9a036] font-medium hover:underline">
+            <a href={`mailto:${SITE.email}`} className="hidden sm:flex items-center gap-1.5 text-[#d9a036] font-medium hover:underline">
               <Mail className="w-3.5 h-3.5" />
-              <span>info@hadirvisitors.com</span>
+              <span>{SITE.email}</span>
+            </a>
+            <a href={`mailto:${SITE.bookingEmail}`} className="hidden lg:flex items-center gap-1.5 text-[#d9a036] font-medium hover:underline">
+              <Mail className="w-3.5 h-3.5" />
+              <span>{SITE.bookingEmail}</span>
             </a>
           </div>
 
-          {/* Right Side Support & Language Toggle */}
-          <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-1.5 text-gray-700">
+          {/* Right: support text + language button, side by side */}
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-1.5 text-gray-700">
               <Clock className="w-3.5 h-3.5 text-gray-500" />
               <span>{isAr ? 'دعم ممتاز على مدار 24/7' : '24/7 Premium Support'}</span>
             </div>
-
             <button
               onClick={() => dispatch(toggleLanguage())}
               className="bg-[#d9a036] hover:bg-[#c48e2e] text-white font-semibold px-3 py-1 rounded text-xs transition-colors cursor-pointer shadow-sm"
@@ -49,119 +110,63 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Main Navigation Header */}
-      <div className="border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex justify-between items-center">
-          
-          {/* Brand Logo */}
-          <a href="#home" className="flex items-center gap-3">
-            <div className="w-10 h-10 relative flex items-center justify-center rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 p-1">
-              <img
-                src="/images/logo.png" 
-                alt="HADIR Logo"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div>
-              <h1 className="text-lg font-extrabold text-gray-900 tracking-wider leading-none uppercase">
-                HADIR VISITORS
-              </h1>
-              <p className="text-[9px] text-[#d9a036] tracking-[0.2em] font-bold uppercase mt-0.5">
-                LUXURY MOBILITY
-              </p>
-            </div>
-          </a>
+      {/* ===== MENU BAR: sticky, always visible while scrolling ===== */}
+      <header className="w-full sticky top-0 z-50 bg-white shadow-sm" dir={isAr ? 'rtl' : 'ltr'}>
+        <div className="border-b border-gray-100">
+          <div className="w-[90%] max-w-[2000px] mx-auto py-3 flex justify-between items-center">
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-7 text-sm font-semibold text-gray-700">
-            <a href="#home" className="text-[#d9a036] border-b-2 border-[#d9a036] pb-1">
-              {isAr ? 'الرئيسية' : 'Home'}
+            {/* Logo: public/images/logo.png */}
+            <a href="#home" className="flex items-center gap-3">
+              <div className="w-11 h-11 flex items-center justify-center rounded-xl overflow-hidden">
+                <img src="/images/logo.png" alt="HADIR VISITORS Logo" className="w-full h-full object-contain" />
+              </div>
+              <div>
+                <span className="block text-lg font-extrabold text-gray-900 tracking-wider leading-none uppercase">
+                  HADIR VISITORS
+                </span>
+                <span className="block text-[9px] text-[#d9a036] tracking-[0.2em] font-bold uppercase mt-0.5">
+                  LUXURY MOBILITY
+                </span>
+              </div>
             </a>
-            <a href="#car-gallery" className="hover:text-[#d9a036] transition-colors">
-              {isAr ? 'الأسطول' : 'Fleet'}
-            </a>
-            <a href="#service-standards" className="hover:text-[#d9a036] transition-colors">
-              {isAr ? 'الخدمات' : 'Services'}
-            </a>
-            <a href="#industry-features" className="hover:text-[#d9a036] transition-colors">
-              {isAr ? 'المميزات' : 'Features'}
-            </a>
-            <a href="#why-hadir" className="hover:text-[#d9a036] transition-colors">
-              {isAr ? 'لماذا نحن' : 'Why Us'}
-            </a>
-            <a href="#contact" className="hover:text-[#d9a036] transition-colors">
-              {isAr ? 'اتصل بنا' : 'Contact'}
-            </a>
-          </nav>
 
-          {/* Mobile Menu Button Toggle */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            aria-label="Toggle Menu"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            {/* Desktop menu: click = smooth scroll to that section */}
+            <nav className="hidden md:flex items-center gap-7 text-sm font-semibold text-gray-700">
+              {MENU.map((item) => (
+                <a key={item.href} href={item.href} className={linkClass(item.href)}>
+                  {isAr ? item.ar : item.en}
+                </a>
+              ))}
+            </nav>
 
+            {/* Phone menu button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+              aria-label="Toggle Menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+
+          </div>
         </div>
-      </div>
 
-      {/* Mobile Drawer Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-gray-200 px-6 py-4 space-y-3 animate-in slide-in-from-top duration-200">
-          <a
-            href="#home"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-[#d9a036] font-bold text-sm py-1"
-          >
-            {isAr ? 'الرئيسية' : 'Home'}
-          </a>
-          <a
-            href="#car-gallery"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-gray-700 hover:text-[#d9a036] font-medium text-sm py-1"
-          >
-            {isAr ? 'الأسطول' : 'Fleet'}
-          </a>
-          <a
-            href="#service-standards"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-gray-700 hover:text-[#d9a036] font-medium text-sm py-1"
-          >
-            {isAr ? 'الخدمات' : 'Services'}
-          </a>
-          <a
-            href="#industry-features"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-gray-700 hover:text-[#d9a036] font-medium text-sm py-1"
-          >
-            {isAr ? 'المميزات' : 'Features'}
-          </a>
-          <a
-            href="#why-hadir"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-gray-700 hover:text-[#d9a036] font-medium text-sm py-1"
-          >
-            {isAr ? 'لماذا نحن' : 'Why Us'}
-          </a>
-          <a
-            href="#contact"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-gray-700 hover:text-[#d9a036] font-medium text-sm py-1"
-          >
-            {isAr ? 'اتصل بنا' : 'Contact'}
-          </a>
-
-          <a
-            href="#book-form"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="w-full mt-2 bg-gradient-to-r from-[#e5ab3c] to-[#ca8f28] text-white font-bold px-5 py-2.5 rounded-lg shadow flex items-center justify-center gap-2 text-sm"
-          >
-            <Calendar className="w-4 h-4" />
-            <span>{isAr ? 'حجز' : 'BOOK'}</span>
-          </a>
-        </div>
-      )}
-    </header>
+        {/* Phone drawer: same links, closes after a click */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white border-b border-gray-200 px-6 py-4 space-y-3">
+            {MENU.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block text-sm py-1 ${active === item.href ? 'text-[#d9a036] font-bold' : 'text-gray-700 font-medium'}`}
+              >
+                {isAr ? item.ar : item.en}
+              </a>
+            ))}
+          </div>
+        )}
+      </header>
+    </>
   );
 }

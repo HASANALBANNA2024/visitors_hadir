@@ -11,7 +11,7 @@ export default function BookingCTA() {
   const scrollToForm = () => {
     const formElement = document.getElementById('book-form');
     if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth' });
+      formElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -29,8 +29,8 @@ export default function BookingCTA() {
         {/* Subtitle */}
         <p className="text-white/90 text-xs sm:text-sm md:text-base font-medium max-w-2xl mx-auto leading-relaxed">
           {isAr
-            ? 'انضم إلى شريك النقل الأكثر ثقة للشركات في الكويت. احجز رحلتك الأولى واكتشف الفرق مع حاضِر.'
-            : "Join Kuwait's most trusted corporate transportation partner. Book your first ride and discover the HADIR difference."}
+            ? 'انضم إلى شريك النقل الأكثر ثقة للشركات في الكويت. احجز رحلتك الأولى واكتشف الفرق مع حاضِر فيزيتورز.'
+            : "Join Kuwait's most trusted corporate transportation partner. Book your first ride and discover the HADIR VISITORS difference."}
         </p>
 
         {/* Smooth Scroll Button */}

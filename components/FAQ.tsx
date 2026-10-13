@@ -36,8 +36,8 @@ export default function FAQ() {
       id: 3,
       questionEn: 'Can companies get monthly contracts?',
       questionAr: 'هل يمكن للشركات الحصول على عقود شهرية؟',
-      answerEn: 'Yes, HADIR offers customized corporate solutions including monthly and annual dedicated chauffeur contracts.',
-      answerAr: 'نعم، تقدم حاضِر حلولاً مخصصة للشركات تشمل عقود سائقين شهرية وسنوية.',
+      answerEn: 'Yes, HADIR VISITORS offers customized corporate solutions including monthly and annual dedicated chauffeur contracts.',
+      answerAr: 'نعم، تقدم حاضِر فيزيتورز حلولاً مخصصة للشركات تشمل عقود سائقين شهرية وسنوية.',
     },
     {
       id: 4,
@@ -50,8 +50,8 @@ export default function FAQ() {
       id: 5,
       questionEn: 'Are all drivers background-checked?',
       questionAr: 'هل تم فحص سجل جميع السائقين؟',
-      answerEn: 'All HADIR drivers undergo rigorous background checks, professional training, and defensive driving certifications.',
-      answerAr: 'يخضع جميع سائقي حاضِر لفحوصات خلفية صارمة وتدريب محترف وشهادات قيادة وقائية.',
+      answerEn: 'All HADIR VISITORS drivers undergo rigorous background checks, professional training, and defensive driving certifications.',
+      answerAr: 'يخضع جميع سائقي حاضِر فيزيتورز لفحوصات خلفية صارمة وتدريب محترف وشهادات قيادة وقائية.',
     },
     {
       id: 6,
@@ -162,7 +162,7 @@ export default function FAQ() {
 
   return (
     <section className="py-16 sm:py-20 bg-gray-50/50" dir={isAr ? 'rtl' : 'ltr'}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[90%] max-w-[2000px] mx-auto">
         <div className="text-center space-y-2 mb-12">
           <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#d9a036]">
             <span>❓</span>

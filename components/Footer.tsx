@@ -3,6 +3,32 @@
 import { Phone, Mail, MessageCircle, Clock, ArrowUp } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
+import { SITE } from './Header';
+
+/* Footer "QUICK LINKS": id = section id (set in app/page.tsx). Add a line = add a link. */
+const QUICK_LINKS = [
+  { id: 'car-gallery', en: 'Our Fleet', ar: 'أسطولنا' },
+  { id: 'service-standards', en: 'Services', ar: 'الخدمات' },
+  { id: 'industry-features', en: 'Features', ar: 'المميزات' },
+  { id: 'why-hadir', en: 'Why HADIR VISITORS', ar: 'لماذا حاضِر فيزيتورز' },
+];
+
+/* Footer "SERVICES": click = choose this service in the booking form.
+   `service` must match a value in SERVICES (Hero.tsx). */
+const SERVICE_LINKS = [
+  { service: 'Airport Transfer', en: 'Airport Transfers', ar: 'نقل المطار' },
+  { service: 'Corporate Events', en: 'Corporate Events', ar: 'فعاليات الشركات' },
+  { service: 'Executive Chauffeur', en: 'Executive Travel', ar: 'السفر التنفيذي' },
+  { service: 'Delegation Support', en: 'Delegation Support', ar: 'دعم الوفود' },
+];
+
+/* Social icons: icon files are in public/images/icons/. Links: SITE.social (Header.tsx) */
+const SOCIALS = [
+  { key: 'facebook', label: 'Facebook' },
+  { key: 'instagram', label: 'Instagram' },
+  { key: 'linkedin', label: 'LinkedIn' },
+  { key: 'x', label: 'X (Twitter)' },
+] as const;
 
 export default function Footer() {
   const currentLang = useSelector((state: RootState) => state.language.lang);
@@ -13,132 +39,105 @@ export default function Footer() {
   };
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  /* Choose the service in the form (Hero.tsx listens) and scroll to the form */
+  const selectService = (service: string) => {
+    window.dispatchEvent(new CustomEvent('select-service', { detail: { service } }));
+    document.getElementById('book-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  const socials = SOCIALS.filter((s) => SITE.social[s.key]); // only filled links are shown
+
   return (
-    <footer className="bg-[#181818] text-gray-300 pt-16 pb-8 border-t border-[#d9a036]/20 relative" dir={isAr ? 'rtl' : 'ltr'}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <footer id="contact" className="bg-[#181818] text-gray-300 pt-16 pb-8 border-t border-[#d9a036]/20 relative scroll-mt-20" dir={isAr ? 'rtl' : 'ltr'}>
+      <div className="w-[90%] max-w-[2000px] mx-auto">
+
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
-          
-          {/* Column 1: Brand Info */}
+
+          {/* Column 1: Brand Info + social icons */}
           <div className="space-y-4">
             <h3 className="text-xl font-black tracking-wider text-[#d9a036] uppercase">
-              HADIR VISTIORS
+              HADIR VISITORS
             </h3>
             <p className="text-xs text-gray-400 font-medium leading-relaxed max-w-sm">
               {isAr
                 ? 'حلول النقل النخبة والنقل التنفيذي للشركات في الكويت. نخدم الشركات والتنفيذيين بتميز لا مثيل له.'
                 : "Kuwait's premier corporate transportation and luxury mobility solutions. Serving businesses and executives with uncompromising excellence."}
             </p>
+            {socials.length > 0 && (
+              <div className="flex items-center gap-3 pt-1">
+                {socials.map((s) => (
+                  <a key={s.key} href={SITE.social[s.key]} target="_blank" rel="noopener noreferrer me" aria-label={s.label}
+                    className="hover:scale-110 transition-transform">
+                    <img src={`/images/icons/${s.key}.svg`} alt="" width={26} height={26} />
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Quick Links (click = scroll to the section) */}
           <div className="space-y-4">
             <h4 className="text-xs font-extrabold tracking-widest text-[#d9a036] uppercase">
               {isAr ? 'روابط سريعة' : 'QUICK LINKS'}
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold text-gray-400">
-              <li>
-                <button
-                  onClick={() => scrollToSection('car-gallery')}
-                  className="hover:text-[#d9a036] transition-colors cursor-pointer"
-                >
-                  {isAr ? 'أسطولنا' : 'Our Fleet'}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('service-standards')}
-                  className="hover:text-[#d9a036] transition-colors cursor-pointer"
-                >
-                  {isAr ? 'الخدمات' : 'Services'}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('industry-features')}
-                  className="hover:text-[#d9a036] transition-colors cursor-pointer"
-                >
-                  {isAr ? 'المميزات' : 'Features'}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('why-hadir')}
-                  className="hover:text-[#d9a036] transition-colors cursor-pointer"
-                >
-                  {isAr ? 'لماذا حاضِر' : 'Why HADIR'}
-                </button>
-              </li>
+              {QUICK_LINKS.map((l) => (
+                <li key={l.id}>
+                  <button onClick={() => scrollToSection(l.id)} className="hover:text-[#d9a036] transition-colors cursor-pointer">
+                    {isAr ? l.ar : l.en}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 3: Services */}
+          {/* Column 3: Services (click = fills the booking form) */}
           <div className="space-y-4">
             <h4 className="text-xs font-extrabold tracking-widest text-[#d9a036] uppercase">
               {isAr ? 'الخدمات' : 'SERVICES'}
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold text-gray-400">
-              <li>
-                <a href="#book-form" className="hover:text-[#d9a036] transition-colors">
-                  {isAr ? 'نقل المطار' : 'Airport Transfers'}
-                </a>
-              </li>
-              <li>
-                <a href="#book-form" className="hover:text-[#d9a036] transition-colors">
-                  {isAr ? 'فعاليات الشركات' : 'Corporate Events'}
-                </a>
-              </li>
-              <li>
-                <a href="#book-form" className="hover:text-[#d9a036] transition-colors">
-                  {isAr ? 'السفر التنفيذي' : 'Executive Travel'}
-                </a>
-              </li>
-              <li>
-                <a href="#book-form" className="hover:text-[#d9a036] transition-colors">
-                  {isAr ? 'دعم الوفود' : 'Delegation Support'}
-                </a>
-              </li>
+              {SERVICE_LINKS.map((l) => (
+                <li key={l.service}>
+                  <button onClick={() => selectService(l.service)} className="hover:text-[#d9a036] transition-colors cursor-pointer">
+                    {isAr ? l.ar : l.en}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 4: Contact Info */}
+          {/* Column 4: Contact Info (click = call / mail app / WhatsApp chat) */}
           <div className="space-y-4">
             <h4 className="text-xs font-extrabold tracking-widest text-[#d9a036] uppercase">
               {isAr ? 'تواصل معنا' : 'CONTACT'}
             </h4>
             <ul className="space-y-3 text-xs font-medium text-gray-300">
               <li>
-                <a
-                  href="tel:+96596770078"
-                  className="flex items-center gap-2.5 hover:text-[#d9a036] transition-colors"
-                >
+                <a href={SITE.phoneHref} dir="ltr" className="flex items-center gap-2.5 hover:text-[#d9a036] transition-colors">
                   <Phone className="w-3.5 h-3.5 text-[#e05286] shrink-0" />
-                  <span>+965 9677 0078</span>
+                  <span>{SITE.phoneDisplay}</span>
                 </a>
               </li>
               <li>
-                <a
-                  href="mailto:info@hadirvisitors.com"
-                  className="flex items-center gap-2.5 hover:text-[#d9a036] transition-colors"
-                >
+                <a href={`mailto:${SITE.email}`} className="flex items-center gap-2.5 hover:text-[#d9a036] transition-colors">
                   <Mail className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-                  <span>info@hadirvisitors.com</span>
+                  <span>{SITE.email}</span>
                 </a>
               </li>
               <li>
-                <a
-                  href="https://wa.me/96596770078"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 hover:text-[#d9a036] transition-colors"
-                >
+                <a href={`mailto:${SITE.bookingEmail}`} className="flex items-center gap-2.5 hover:text-[#d9a036] transition-colors">
+                  <Mail className="w-3.5 h-3.5 text-gray-400 shrink-0" />
+                  <span>{SITE.bookingEmail}</span>
+                </a>
+              </li>
+              <li>
+                <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 hover:text-[#d9a036] transition-colors">
                   <MessageCircle className="w-3.5 h-3.5 text-green-500 shrink-0" />
                   <span>{isAr ? 'دعم الواتساب' : 'WhatsApp Support'}</span>
                 </a>
@@ -155,15 +154,14 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 text-center text-[11px] text-gray-500 font-semibold">
           <p dir="ltr">
-            © 2026 HADIR VISTIORS | Kuwait&apos;s Premier Corporate Transportation | All rights reserved
+            © 2026 HADIR VISITORS | Kuwait&apos;s Premier Corporate Transportation | All rights reserved
           </p>
         </div>
 
       </div>
 
-      {/* Floating Action Buttons (Scroll to Top & Fixed WhatsApp) */}
+      {/* Floating buttons: scroll to top + WhatsApp */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-        {/* Scroll to top button */}
         <button
           onClick={scrollToTop}
           aria-label="Scroll to top"
@@ -172,9 +170,8 @@ export default function Footer() {
           <ArrowUp className="w-5 h-5 stroke-[2.5]" />
         </button>
 
-        {/* Floating WhatsApp button */}
         <a
-          href="https://wa.me/96596770078"
+          href={`https://wa.me/${SITE.whatsapp}`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contact WhatsApp"

@@ -19,15 +19,15 @@ export interface Vehicle {
   featuresAr: string[];
 }
 
-export default function CarGallery() {
-  const currentLang = useSelector((state: RootState) => state.language.lang);
-  const isAr = currentLang === 'AR';
-
-  const [activeTab, setActiveTab] = useState<string>('all');
-  const [imgErrors, setImgErrors] = useState<{ [key: string]: boolean }>({});
-
-  // 🚗 Vehicle Data List
-  const vehicles: Vehicle[] = [
+/* ============================================================
+ * CAR CARDS. To ADD a card: copy one { ... } block, change it.
+ *  - category: 'sedans' | 'suvs' | 'vans' | 'buses'
+ *  - imageSrc: put the photo in public/images/cargallery/ and write
+ *    '/images/cargallery/name.png'  (no photo = icon is shown)
+ *  - id must be different for every card
+ * The cards appear automatically, no other change needed.
+ * ============================================================ */
+const VEHICLES: Vehicle[] = [
     {
       id: '1',
       name: 'Mercedes-Benz S-Class',
@@ -148,39 +148,103 @@ export default function CarGallery() {
         'قمة الفخامة والرفاهية',
       ],
     },
+    // ---- VANS ----
+    {
+      id: '7',
+      name: 'Mercedes-Benz V-Class',
+      category: 'vans',
+      categoryLabelEn: 'PREMIUM VAN',
+      categoryLabelAr: 'فان متميز',
+      badgeEn: 'PREMIUM',
+      badgeAr: 'ممتازة',
+      imageSrc: '/images/cargallery/v-class.png',
+      featuresEn: ['Seats up to 7 passengers', 'Groups & airport transfers', 'Spacious VIP interior'],
+      featuresAr: ['تسع حتى 7 ركاب', 'مجموعات ونقل المطار', 'مقصورة VIP واسعة'],
+    },
+    {
+      id: '8',
+      name: 'Executive Van',
+      category: 'vans',
+      categoryLabelEn: 'VIP VAN',
+      categoryLabelAr: 'فان VIP',
+      badgeEn: 'GROUP',
+      badgeAr: 'مجموعات',
+      imageSrc: '/images/cargallery/executive-van.png',
+      featuresEn: ['Seats up to 10 passengers', 'Corporate teams & events', 'Comfort for longer trips'],
+      featuresAr: ['تسع حتى 10 ركاب', 'فرق الشركات والفعاليات', 'راحة للرحلات الطويلة'],
+    },
+    // ---- BUSES ----
+    {
+      id: '9',
+      name: 'Luxury Coaster Bus',
+      category: 'buses',
+      categoryLabelEn: 'PREMIUM BUS',
+      categoryLabelAr: 'حافلة متميزة',
+      badgeEn: 'GROUP',
+      badgeAr: 'مجموعات',
+      imageSrc: '/images/cargallery/coaster-bus.png',
+      featuresEn: ['Seats up to 22 passengers', 'Delegations & events', 'Air-conditioned comfort'],
+      featuresAr: ['تسع حتى 22 راكباً', 'الوفود والفعاليات', 'تكييف ومقاعد مريحة'],
+    },
+    {
+      id: '10',
+      name: 'VIP Coach Bus',
+      category: 'buses',
+      categoryLabelEn: 'PREMIUM BUS',
+      categoryLabelAr: 'حافلة متميزة',
+      badgeEn: 'VIP',
+      badgeAr: 'VIP',
+      imageSrc: '/images/cargallery/vip-coach.png',
+      featuresEn: ['Seats up to 45 passengers', 'Large corporate groups', 'Luggage space & Wi-Fi'],
+      featuresAr: ['تسع حتى 45 راكباً', 'مجموعات الشركات الكبيرة', 'مساحة أمتعة وواي فاي'],
+    },
   ];
 
-  // Category Tabs List
-  const tabs = [
-    { id: 'all', labelEn: 'ALL VEHICLES', labelAr: 'جميع المركبات' },
-    { id: 'sedans', labelEn: 'SEDANS', labelAr: 'سيدان' },
-    { id: 'suvs', labelEn: 'SUVS', labelAr: 'دفع رباعي' },
-    { id: 'vans', labelEn: 'VANS', labelAr: 'فان' },
-    { id: 'buses', labelEn: 'BUSES', labelAr: 'حافلات' },
-  ];
+/* Category tabs. id must match a `category` above. */
+const TABS = [
+  { id: 'all', labelEn: 'ALL VEHICLES', labelAr: 'جميع المركبات' },
+  { id: 'sedans', labelEn: 'SEDANS', labelAr: 'سيدان' },
+  { id: 'suvs', labelEn: 'SUVS', labelAr: 'دفع رباعي' },
+  { id: 'vans', labelEn: 'VANS', labelAr: 'فان' },
+  { id: 'buses', labelEn: 'BUSES', labelAr: 'حافلات' },
+];
+
+/* Which form "Vehicle Class" option each category fills in */
+const CLASS_OF: { [key: string]: string } = {
+  sedans: 'Luxury Sedan',
+  suvs: 'Executive SUV',
+  vans: 'VIP Van',
+  buses: 'Premium Bus',
+};
+
+export default function CarGallery() {
+  const currentLang = useSelector((state: RootState) => state.language.lang);
+  const isAr = currentLang === 'AR';
+
+  const [activeTab, setActiveTab] = useState<string>('all');
+  const [imgErrors, setImgErrors] = useState<{ [key: string]: boolean }>({});
 
   // Filter vehicles by active tab
   const filteredVehicles =
     activeTab === 'all'
-      ? vehicles
-      : vehicles.filter((v) => v.category === activeTab);
+      ? VEHICLES
+      : VEHICLES.filter((v) => v.category === activeTab);
 
   const handleImageError = (id: string) => {
     setImgErrors((prev) => ({ ...prev, [id]: true }));
   };
 
-  const handleReserve = (vehicleName: string) => {
-    const phoneNumber = '96596770078';
-    const message = `*Reservation Request - HADIR VISITORS*%0A%0A` +
-      `*Vehicle:* ${vehicleName}%0A` +
-      `*Status:* Requesting Availability`;
-
-    window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank');
+  // Reserve: fill the booking form (Hero.tsx listens) and scroll up to it
+  const handleReserve = (car: Vehicle) => {
+    window.dispatchEvent(
+      new CustomEvent('select-vehicle', { detail: { name: car.name, vehicleClass: CLASS_OF[car.category] } })
+    );
+    document.getElementById('book-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
   return (
     <section className="py-16 sm:py-20 bg-gray-50/50" dir={isAr ? 'rtl' : 'ltr'}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[90%] max-w-[2000px] mx-auto">
         
         {/* Section Header */}
         <div className="text-center space-y-2 mb-8">
@@ -202,7 +266,7 @@ export default function CarGallery() {
 
         {/* Filter Category Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {tabs.map((tab) => (
+          {TABS.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
@@ -278,7 +342,7 @@ export default function CarGallery() {
 
                   {/* Reserve Button */}
                   <button
-                    onClick={() => handleReserve(car.name)}
+                    onClick={() => handleReserve(car)}
                     className="w-full bg-[#d9a036] hover:bg-[#c48e2e] text-white font-bold py-2.5 px-4 rounded-lg text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-sm active:scale-95 cursor-pointer"
                   >
                     <Calendar className="w-3.5 h-3.5" />
@@ -289,6 +353,12 @@ export default function CarGallery() {
             );
           })}
         </div>
+
+        {filteredVehicles.length === 0 && (
+          <p className="text-center text-sm text-gray-500 font-medium py-10">
+            {isAr ? 'مركبات هذه الفئة متاحة عند الطلب. تواصل معنا.' : 'Vehicles in this category are available on request. Contact us.'}
+          </p>
+        )}
 
       </div>
     </section>

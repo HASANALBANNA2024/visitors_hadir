@@ -69,7 +69,7 @@ export default function ServiceStandards() {
 
   return (
     <section className="py-16 sm:py-20 bg-gray-50/50" dir={isAr ? 'rtl' : 'ltr'}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[90%] max-w-[2000px] mx-auto">
         
         {/* Section Header */}
         <div className="text-center space-y-2 mb-12">
