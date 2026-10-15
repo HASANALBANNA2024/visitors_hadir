@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Phone, Mail, MessageCircle, Clock, ArrowUp } from 'lucide-react';
+import { Phone, Mail, MessageCircle, Clock, ArrowUp, MapPin } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { SITE, openMail } from './Header';
@@ -57,6 +57,9 @@ export default function Footer() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     window.history.replaceState(null, '', href); // address bar shows /#car-gallery
   };
+
+  /* Opens the Maps app on a phone, Google Maps on a computer */
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.mapQuery)}`;
 
   const socials = SOCIALS.filter((s) => SITE.social[s.key]); // only filled links are shown
 
@@ -161,11 +164,40 @@ export default function Footer() {
 
         </div>
 
+        {/* Map: shows the office. Click "Open in Maps" = opens the Maps app (phone) or Google Maps (computer) */}
+        <div className="py-8 border-b border-gray-800">
+          <div className="relative rounded-xl overflow-hidden border border-gray-800 h-56 sm:h-64">
+            <iframe
+              title="HADIR VISITORS office map"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(SITE.mapQuery)}&z=15&output=embed`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 w-full h-full border-0"
+            />
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-3 end-3 inline-flex items-center gap-1.5 bg-[#d9a036] hover:bg-[#c48e2e] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-2 rounded-lg shadow-lg transition-colors"
+            >
+              <MapPin className="w-3.5 h-3.5" />
+              {isAr ? 'افتح في الخرائط' : 'Open in Maps'}
+            </a>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
         <div className="pt-8 text-center text-[11px] text-gray-500 font-semibold">
           <p dir="ltr">
             © 2026 HADIR VISITORS | Kuwait&apos;s Premier Corporate Transportation | All rights reserved
           </p>
+          {(isAr ? SITE.address.ar : SITE.address.en) && (
+            <p className="mt-2">
+              <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#d9a036] transition-colors">
+                {isAr ? 'العنوان: ' : 'Office: '}{isAr ? SITE.address.ar : SITE.address.en}
+              </a>
+            </p>
+          )}
         </div>
 
       </div>

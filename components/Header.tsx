@@ -30,6 +30,10 @@ export const SITE = {
   whatsapp: '96597267879', // click = WhatsApp chat
   email: 'info@hadirvisitors.com', // click = opens the mail app
   bookingEmail: 'booking@hadirvisitors.com', // click = opens the mail app
+  // office address (footer, under the copyright line). '' = hidden
+  address: { en: 'Salmiya - Block 2, Salem Al-Mubarak St., Bldg No. 7113 - 1st Floor', ar: 'السالمية - قطعة 2، شارع سالم المبارك، مبنى رقم 7113 - الدور الأول' },
+  // what Google Maps searches for (map + "open in Maps" link). Change it to your exact place name or "lat,lng"
+  mapQuery: 'Salem Al-Mubarak Street, Salmiya, Kuwait',
   social: {
     facebook: '',
     instagram: '',
