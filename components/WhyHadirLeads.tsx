@@ -118,7 +118,7 @@ export default function WhyHadirLeads() {
               
               {!hasImgError ? (
                 <Image
-                  src="/images/leads/leads.jpg"
+                  src="/images/leads/leads_images.jpg"
                   alt="Why HADIR VISITORS Leads"
                   fill
                   quality={90}
