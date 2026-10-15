@@ -58,7 +58,7 @@ export default function LegalPage({ data }: { data: LegalData }) {
         </div>
       </section>
 
-      {/* <BookingCTA /> */}
+      <BookingCTA />
       <Footer />
     </main>
   );

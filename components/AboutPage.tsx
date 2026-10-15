@@ -106,7 +106,7 @@ export default function AboutPage({ data }: { data: AboutData }) {
         </div>
       </section>
 
-      {/* <BookingCTA /> */}
+      <BookingCTA />
       <Footer />
     </main>
   );
