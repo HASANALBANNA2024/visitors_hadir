@@ -104,7 +104,7 @@ export default function AboutPage({ data }: { data: AboutData }) {
           </div>
         </div>
       </section>
-
+{/* //Md hasan al Banna */}
       <Footer />
     </main>
   );
