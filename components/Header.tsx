@@ -25,9 +25,9 @@ export function openMail(e: React.MouseEvent<HTMLAnchorElement>, address: string
 }
 
 export const SITE = {
-  phoneDisplay: '+965 9677 0078',
-  phoneHref: 'tel:+96596770078', // click = phone call
-  whatsapp: '96596770078', // click = WhatsApp chat
+  phoneDisplay: '+965 972 67879',
+  phoneHref: 'tel:+96597267879', // click = phone call
+  whatsapp: '96597267879', // click = WhatsApp chat
   email: 'info@hadirvisitors.com', // click = opens the mail app
   bookingEmail: 'booking@hadirvisitors.com', // click = opens the mail app
   social: {
