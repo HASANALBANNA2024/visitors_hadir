@@ -15,6 +15,15 @@ import { toggleLanguage } from '../store/languageSlice';
  *  - social: paste your page link between the quotes
  *    ('' = icon is hidden, so nothing is broken)
  * ============================================================ */
+/* Email click: on phones it opens the mail app (mailto).
+   On a computer without a mail app, mailto does nothing, so it opens Gmail's
+   compose window instead with the address filled in. */
+export function openMail(e: React.MouseEvent<HTMLAnchorElement>, address: string) {
+  if (typeof navigator === 'undefined' || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) return;
+  e.preventDefault();
+  window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(address)}`, '_blank', 'noopener,noreferrer');
+}
+
 export const SITE = {
   phoneDisplay: '+965 9677 0078',
   phoneHref: 'tel:+96596770078', // click = phone call
@@ -108,11 +117,11 @@ export default function Header() {
               <Phone className="w-3.5 h-3.5 fill-current" />
               <span>{SITE.phoneDisplay}</span>
             </a>
-            <a href={`mailto:${SITE.email}`} className="hidden sm:flex items-center gap-1.5 text-[#d9a036] font-medium hover:underline">
+            <a href={`mailto:${SITE.email}`} onClick={(e) => openMail(e, SITE.email)} className="hidden sm:flex items-center gap-1.5 text-[#d9a036] font-medium hover:underline">
               <Mail className="w-3.5 h-3.5" />
               <span>{SITE.email}</span>
             </a>
-            <a href={`mailto:${SITE.bookingEmail}`} className="hidden lg:flex items-center gap-1.5 text-[#d9a036] font-medium hover:underline">
+            <a href={`mailto:${SITE.bookingEmail}`} onClick={(e) => openMail(e, SITE.bookingEmail)} className="hidden lg:flex items-center gap-1.5 text-[#d9a036] font-medium hover:underline">
               <Mail className="w-3.5 h-3.5" />
               <span>{SITE.bookingEmail}</span>
             </a>

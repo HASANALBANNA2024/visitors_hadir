@@ -9,7 +9,6 @@ import { Target, Eye, ShieldCheck, Clock, Star, Users, Check } from 'lucide-reac
 import { RootState } from '../store/store';
 import Header from './Header';
 import PageHero from './PageHero';
-import BookingCTA from './BookingCTA';
 import Footer from './Footer';
 
 type T = { en: string; ar: string };
@@ -106,7 +105,6 @@ export default function AboutPage({ data }: { data: AboutData }) {
         </div>
       </section>
 
-      <BookingCTA />
       <Footer />
     </main>
   );

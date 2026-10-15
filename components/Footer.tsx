@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Phone, Mail, MessageCircle, Clock, ArrowUp } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { SITE } from './Header';
+import { SITE, openMail } from './Header';
 
 /* Footer "QUICK LINKS"
    - href '/#id' = the Home page at that section (from ANY page: Home, services, About, Privacy)
@@ -134,13 +134,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href={`mailto:${SITE.email}`} className="flex items-center gap-2.5 hover:text-[#d9a036] transition-colors">
+                <a href={`mailto:${SITE.email}`} onClick={(e) => openMail(e, SITE.email)} className="flex items-center gap-2.5 hover:text-[#d9a036] transition-colors">
                   <Mail className="w-3.5 h-3.5 text-gray-400 shrink-0" />
                   <span>{SITE.email}</span>
                 </a>
               </li>
               <li>
-                <a href={`mailto:${SITE.bookingEmail}`} className="flex items-center gap-2.5 hover:text-[#d9a036] transition-colors">
+                <a href={`mailto:${SITE.bookingEmail}`} onClick={(e) => openMail(e, SITE.bookingEmail)} className="flex items-center gap-2.5 hover:text-[#d9a036] transition-colors">
                   <Mail className="w-3.5 h-3.5 text-gray-400 shrink-0" />
                   <span>{SITE.bookingEmail}</span>
                 </a>

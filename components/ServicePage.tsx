@@ -18,7 +18,6 @@ import { RootState } from '../store/store';
 import Header from './Header';
 import Hero from './Hero';
 import CarGallery from './CarGallery';
-import BookingCTA from './BookingCTA';
 import Footer from './Footer';
 
 type T = { en: string; ar: string }; // every text has an English + an Arabic version
@@ -132,7 +131,6 @@ export default function ServicePage({ data }: { data: ServiceData }) {
       {/* 5. Cars (same cards as Home). "Reserve" fills the form of THIS page */}
       <div id="car-gallery"><CarGallery /></div>
 
-      <BookingCTA />
       <Footer />
     </main>
   );

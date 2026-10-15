@@ -63,6 +63,15 @@ export default function BookingForm({ service }: { service?: string }) {
     };
   }, []);
 
+
+  // Required-field message in the chosen language
+  const reqMsg = isAr ? 'يرجى تعبئة هذا الحقل' : 'Please fill out this field';
+  const reqProps = {
+    required: true,
+    onInvalid: (e: React.FormEvent<HTMLInputElement>) => e.currentTarget.setCustomValidity(reqMsg),
+    onInput: (e: React.FormEvent<HTMLInputElement>) => e.currentTarget.setCustomValidity(''),
+  };
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -126,6 +135,7 @@ export default function BookingForm({ service }: { service?: string }) {
             <input
               type="text"
               name="fullName"
+              {...reqProps}
               value={formData.fullName}
               onChange={handleInputChange}
               placeholder={isAr ? 'جون الصباح' : 'John Al-Sabah'}
@@ -140,6 +150,7 @@ export default function BookingForm({ service }: { service?: string }) {
             <input
               type="tel"
               name="phone"
+              {...reqProps}
               value={formData.phone}
               onChange={handleInputChange}
               placeholder="+965 9000 0000"
@@ -189,6 +200,7 @@ export default function BookingForm({ service }: { service?: string }) {
           <input
             type="text"
             name="pickupLocation"
+            {...reqProps}
             value={formData.pickupLocation}
             onChange={handleInputChange}
             placeholder={isAr ? 'المطار، الفندق، المكتب أو المنطقة' : 'Airport, Hotel, Office or Area'}

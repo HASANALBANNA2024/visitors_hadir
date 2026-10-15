@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import Header from './Header';
 import PageHero from './PageHero';
-import BookingCTA from './BookingCTA';
 import Footer from './Footer';
 
 type T = { en: string; ar: string };
@@ -58,7 +57,6 @@ export default function LegalPage({ data }: { data: LegalData }) {
         </div>
       </section>
 
-      <BookingCTA />
       <Footer />
     </main>
   );
