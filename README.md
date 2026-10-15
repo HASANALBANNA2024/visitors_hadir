@@ -93,3 +93,10 @@ A slide can be 2, 3, 4 or more pictures (add / delete a line in the list). Slide
 - Industry Features icons: `public/images/industryimage/` (same file names, PNG)
 - Car photos: `public/images/cargallery/<sedans|suvs|vans|buses>/`
 Replace a file with the same name to change it; if a file is missing, a default icon is shown.
+
+## SEO (Google)
+- `app/layout.tsx`: title, description, social preview and business data (JSON-LD: phone, address, hours).
+- `app/sitemap.ts` -> /sitemap.xml and `app/robots.ts` -> /robots.txt (add a new page = one line in sitemap.ts).
+- Every page has its own title + description in its `page.tsx` (`metadata`).
+- Set the real domain on the server: `.env.local` -> `NEXT_PUBLIC_SITE_URL=https://hadirvisitors.com`
+- Google Search Console code (optional): `NEXT_PUBLIC_GSC_VERIFICATION=<code>`; then submit https://<domain>/sitemap.xml

@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   openGraph: { type: 'website', url: SITE_URL, siteName: 'HADIR VISITORS', title: TITLE, description: DESCRIPTION, images: ['/og-image.png'] },
   twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: ['/og-image.png'] },
   robots: { index: true, follow: true },
+  // Google Search Console: put the code in .env.local as NEXT_PUBLIC_GSC_VERIFICATION (no code change needed)
+  ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } } : {}),
 };
 
 /* Phone friendly + browser bar colour */
@@ -35,14 +37,31 @@ export const viewport: Viewport = { width: 'device-width', initialScale: 1, them
 const JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'AutoRental',
+  '@id': `${SITE_URL}/#business`,
   name: 'HADIR VISITORS',
+  alternateName: 'حاضر فيزيتورز',
+  description: DESCRIPTION,
   url: SITE_URL,
   image: `${SITE_URL}/og-image.png`,
-  telephone: '+96596770078',
+  logo: `${SITE_URL}/images/logo.png`,
+  telephone: '+96597267879',
   email: 'info@hadirvisitors.com',
-  areaServed: 'Kuwait',
-  address: { '@type': 'PostalAddress', addressCountry: 'KW', addressLocality: 'Kuwait City' },
-  openingHours: 'Mo-Su 00:00-23:59',
+  areaServed: { '@type': 'Country', name: 'Kuwait' },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Block 2, Salem Al-Mubarak St., Bldg 7113, 1st Floor',
+    addressLocality: 'Salmiya',
+    addressCountry: 'KW',
+  },
+  hasMap: 'https://www.google.com/maps/search/?api=1&query=Salem+Al-Mubarak+Street,+Salmiya,+Kuwait',
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '00:00',
+    closes: '23:59',
+  },
+  availableLanguage: ['English', 'Arabic'],
+  contactPoint: { '@type': 'ContactPoint', telephone: '+96597267879', contactType: 'reservations', availableLanguage: ['English', 'Arabic'] },
 };
 
 export default function RootLayout({

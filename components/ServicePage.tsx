@@ -76,7 +76,7 @@ export default function ServicePage({ data }: { data: ServiceData }) {
 
           {/* Uses the 2nd slide picture, so a new picture there changes this too */}
           <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100 aspect-[16/10] bg-gray-100">
-            <img src={data.slides[1] ?? data.slides[0]} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <img src={data.slides[1] ?? data.slides[0]} alt={L(data.overview.title)} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
           </div>
         </div>
       </section>

@@ -62,7 +62,7 @@ export default function AboutPage({ data }: { data: AboutData }) {
             </ul>
           </div>
           <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100 aspect-[16/10] bg-gray-100">
-            <img src={data.story.image} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <img src={data.story.image} alt="HADIR VISITORS chauffeur service in Kuwait" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
           </div>
         </div>
       </section>
