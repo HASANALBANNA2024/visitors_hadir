@@ -3,6 +3,11 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [ main ]
+
+concurrency:
+  group: deploy-visitors-hadir
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,12 +24,7 @@ jobs:
             git pull origin main
             npm ci
             npm run build
-            pm2 restart all
-
-
-
-
-
-            #for testing purposes, you can use the following command to
-
-            # check if the deployment was successful ata to amr local project mane github ar stae kora ache ok 
+            rm -rf .next/cache/images
+            pm2 restart visitors_hadir --update-env
+            pm2 save
+            git log -1 --oneline

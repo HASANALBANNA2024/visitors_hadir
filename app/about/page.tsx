@@ -42,7 +42,7 @@ const DATA: AboutData = {
       { en: 'Clear, honest pricing', ar: 'أسعار واضحة وصادقة' },
       { en: 'Support 24 hours, 7 days', ar: 'دعم على مدار 24 ساعة، 7 أيام' },
     ],
-    image: '/images/pages/about/section.svg',
+    image: '/images/pages/about/about_section_image.jpg',
   },
   stats: [
     { value: '178+', label: { en: 'Premium vehicles', ar: 'مركبة ممتازة' } },
