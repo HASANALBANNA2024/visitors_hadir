@@ -16,9 +16,10 @@ const DATA: ServiceData = {
   slug: 'executive-travel',
   service: 'Executive Chauffeur',
   slides: [
-    '/images/services/executive-travel/slide-1.jpg',
-    '/images/services/executive-travel/slide-2.jpg',
-    '/images/services/executive-travel/slide-3.jpg',
+    '/images/hero/slide-3.jpg',
+    '/images/hero/slide-4.jpg',
+    '/images/hero/slide-1.jpg',
+    '/images/hero/slide-2.jpg',
   ],
   hero: {
     badge: { en: 'EXECUTIVE CHAUFFEUR IN KUWAIT', ar: 'سائق تنفيذي في الكويت' },

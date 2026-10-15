@@ -16,9 +16,10 @@ const DATA: ServiceData = {
   slug: 'delegation-support',
   service: 'Delegation Support',
   slides: [
-    '/images/services/delegation-support/slide-1.jpg',
-    '/images/services/delegation-support/slide-2.jpg',
-    '/images/services/delegation-support/slide-3.jpg',
+    '/images/hero/slide-4.jpg',
+    '/images/hero/slide-1.jpg',
+    '/images/hero/slide-2.jpg',
+    '/images/hero/slide-3.jpg',
   ],
   hero: {
     badge: { en: 'DELEGATION TRANSPORT IN KUWAIT', ar: 'نقل الوفود في الكويت' },

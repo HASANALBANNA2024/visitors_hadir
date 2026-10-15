@@ -12,9 +12,10 @@ import LegalPage, { LegalData } from '../../components/LegalPage';
 
 const DATA: LegalData = {
   slides: [
-    '/images/pages/privacy/slide-1.jpg',
-    '/images/pages/privacy/slide-2.jpg',
-    '/images/pages/privacy/slide-3.jpg',
+    '/images/hero/slide-3.jpg',
+    '/images/hero/slide-4.jpg',
+    '/images/hero/slide-1.jpg',
+    '/images/hero/slide-2.jpg',
   ],
   hero: {
     badge: { en: 'YOUR PRIVACY MATTERS', ar: 'خصوصيتك تهمنا' },

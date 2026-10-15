@@ -10,9 +10,10 @@ import AboutPage, { AboutData } from '../../components/AboutPage';
 
 const DATA: AboutData = {
   slides: [
-    '/images/pages/about/slide-1.jpg',
-    '/images/pages/about/slide-2.jpg',
-    '/images/pages/about/slide-3.jpg',
+    '/images/hero/slide-2.jpg',
+    '/images/hero/slide-3.jpg',
+    '/images/hero/slide-4.jpg',
+    '/images/hero/slide-1.jpg',
   ],
   hero: {
     badge: { en: 'ABOUT HADIR VISITORS', ar: 'عن حاضِر فيزيتورز' },
@@ -41,7 +42,7 @@ const DATA: AboutData = {
       { en: 'Clear, honest pricing', ar: 'أسعار واضحة وصادقة' },
       { en: 'Support 24 hours, 7 days', ar: 'دعم على مدار 24 ساعة، 7 أيام' },
     ],
-    image: '/images/pages/about/slide-2.jpg',
+    image: '/images/pages/about/section.svg',
   },
   stats: [
     { value: '178+', label: { en: 'Premium vehicles', ar: 'مركبة ممتازة' } },

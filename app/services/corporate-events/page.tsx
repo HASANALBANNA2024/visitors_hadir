@@ -16,9 +16,10 @@ const DATA: ServiceData = {
   slug: 'corporate-events',
   service: 'Corporate Events',
   slides: [
-    '/images/services/corporate-events/slide-1.jpg',
-    '/images/services/corporate-events/slide-2.jpg',
-    '/images/services/corporate-events/slide-3.jpg',
+    '/images/hero/slide-2.jpg',
+    '/images/hero/slide-3.jpg',
+    '/images/hero/slide-4.jpg',
+    '/images/hero/slide-1.jpg',
   ],
   hero: {
     badge: { en: 'CORPORATE EVENT TRANSPORT IN KUWAIT', ar: 'نقل فعاليات الشركات في الكويت' },

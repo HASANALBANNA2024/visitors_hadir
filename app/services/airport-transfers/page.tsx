@@ -16,9 +16,10 @@ const DATA: ServiceData = {
   slug: 'airport-transfers',
   service: 'Airport Transfer',
   slides: [
-    '/images/services/airport-transfers/slide-1.jpg',
-    '/images/services/airport-transfers/slide-2.jpg',
-    '/images/services/airport-transfers/slide-3.jpg',
+    '/images/hero/slide-1.jpg',
+    '/images/hero/slide-2.jpg',
+    '/images/hero/slide-3.jpg',
+    '/images/hero/slide-4.jpg',
   ],
   hero: {
     badge: { en: 'VIP AIRPORT TRANSFERS IN KUWAIT', ar: 'خدمة نقل المطار VIP في الكويت' },
