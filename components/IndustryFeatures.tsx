@@ -72,7 +72,7 @@ export default function IndustryFeatures() {
       titleEn: 'Safety First',
       titleAr: 'السلامة أولاً',
       descEn: 'Background-checked drivers, regular vehicle maintenance, insurance coverage',
-      descAr: 'سائقون مفحوصو السجل، صيانة دورية للمركبات، ותغطية تأمينية شاملة',
+      descAr: 'سائقون مفحوصو السجل، صيانة دورية للمركبات، وتغطية تأمينية شاملة',
     },
     {
       id: 6,

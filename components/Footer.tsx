@@ -1,25 +1,33 @@
 'use client';
 
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Phone, Mail, MessageCircle, Clock, ArrowUp } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { SITE } from './Header';
 
-/* Footer "QUICK LINKS": id = section id (set in app/page.tsx). Add a line = add a link. */
+/* Footer "QUICK LINKS"
+   - href '/#id' = the Home page at that section (from ANY page: Home, services, About, Privacy)
+   - href '/about' = a normal page
+   Add a line = add a link. */
 const QUICK_LINKS = [
-  { id: 'car-gallery', en: 'Our Fleet', ar: 'أسطولنا' },
-  { id: 'service-standards', en: 'Services', ar: 'الخدمات' },
-  { id: 'industry-features', en: 'Features', ar: 'المميزات' },
-  { id: 'why-hadir', en: 'Why HADIR VISITORS', ar: 'لماذا حاضِر فيزيتورز' },
+  { href: '/#car-gallery', en: 'Our Fleet', ar: 'أسطولنا' },
+  { href: '/#service-standards', en: 'Services', ar: 'الخدمات' },
+  { href: '/#industry-features', en: 'Features', ar: 'المميزات' },
+  { href: '/#why-hadir', en: 'Why HADIR VISITORS', ar: 'لماذا حاضِر فيزيتورز' },
+  { href: '/about', en: 'About Us', ar: 'من نحن' },
+  { href: '/privacy-policy', en: 'Privacy Policy', ar: 'سياسة الخصوصية' },
 ];
 
-/* Footer "SERVICES": click = choose this service in the booking form.
-   `service` must match a value in SERVICES (Hero.tsx). */
+/* Footer "SERVICES": click = opens that service page.
+   `slug` = the folder name in app/services/<slug>/page.tsx (one file per page).
+   New service page = copy a page file + add one line here. */
 const SERVICE_LINKS = [
-  { service: 'Airport Transfer', en: 'Airport Transfers', ar: 'نقل المطار' },
-  { service: 'Corporate Events', en: 'Corporate Events', ar: 'فعاليات الشركات' },
-  { service: 'Executive Chauffeur', en: 'Executive Travel', ar: 'السفر التنفيذي' },
-  { service: 'Delegation Support', en: 'Delegation Support', ar: 'دعم الوفود' },
+  { slug: 'airport-transfers', en: 'Airport Transfers', ar: 'نقل المطار' },
+  { slug: 'corporate-events', en: 'Corporate Events', ar: 'فعاليات الشركات' },
+  { slug: 'executive-travel', en: 'Executive Travel', ar: 'السفر التنفيذي' },
+  { slug: 'delegation-support', en: 'Delegation Support', ar: 'دعم الوفود' },
 ];
 
 /* Social icons: icon files are in public/images/icons/. Links: SITE.social (Header.tsx) */
@@ -38,14 +46,16 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+  const isHome = usePathname() === '/';
 
-  /* Choose the service in the form (Hero.tsx listens) and scroll to the form */
-  const selectService = (service: string) => {
-    window.dispatchEvent(new CustomEvent('select-service', { detail: { service } }));
-    document.getElementById('book-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  /* Quick links: on Home the page scrolls smoothly to the section.
+     On any other page the link opens Home at that section (Home scrolls there by itself). */
+  const onQuickClick = (e: React.MouseEvent, href: string) => {
+    if (!isHome || !href.startsWith('/#')) return;
+    e.preventDefault();
+    const id = href.slice(2);
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.history.replaceState(null, '', href); // address bar shows /#car-gallery
   };
 
   const socials = SOCIALS.filter((s) => SITE.social[s.key]); // only filled links are shown
@@ -79,33 +89,33 @@ export default function Footer() {
             )}
           </div>
 
-          {/* Column 2: Quick Links (click = scroll to the section) */}
+          {/* Column 2: Quick Links (click = Home page section, or About / Privacy page) */}
           <div className="space-y-4">
             <h4 className="text-xs font-extrabold tracking-widest text-[#d9a036] uppercase">
               {isAr ? 'روابط سريعة' : 'QUICK LINKS'}
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold text-gray-400">
               {QUICK_LINKS.map((l) => (
-                <li key={l.id}>
-                  <button onClick={() => scrollToSection(l.id)} className="hover:text-[#d9a036] transition-colors cursor-pointer">
+                <li key={l.href}>
+                  <Link href={l.href} onClick={(e) => onQuickClick(e, l.href)} className="hover:text-[#d9a036] transition-colors">
                     {isAr ? l.ar : l.en}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: Services (click = fills the booking form) */}
+          {/* Column 3: Services (click = opens the service page) */}
           <div className="space-y-4">
             <h4 className="text-xs font-extrabold tracking-widest text-[#d9a036] uppercase">
               {isAr ? 'الخدمات' : 'SERVICES'}
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold text-gray-400">
               {SERVICE_LINKS.map((l) => (
-                <li key={l.service}>
-                  <button onClick={() => selectService(l.service)} className="hover:text-[#d9a036] transition-colors cursor-pointer">
+                <li key={l.slug}>
+                  <Link href={`/services/${l.slug}`} className="hover:text-[#d9a036] transition-colors">
                     {isAr ? l.ar : l.en}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>

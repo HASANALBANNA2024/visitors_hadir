@@ -87,10 +87,10 @@ export default function WhyHadirLeads() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
           {/* Left Column: Numbered List */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-6 space-y-4 flex flex-col justify-center">
             {features.map((item) => (
               <div key={item.id} className="flex items-start gap-4 group">
                 {/* Number Box */}
@@ -103,7 +103,7 @@ export default function WhyHadirLeads() {
                   <h3 className="text-sm sm:text-base font-bold text-gray-900">
                     {isAr ? item.titleAr : item.titleEn}
                   </h3>
-                  <p className="text-xs text-gray-500 font-medium leading-relaxed max-w-xl">
+                  <p className="text-xs text-gray-500 font-medium leading-relaxed max-w-2xl">
                     {isAr ? item.descAr : item.descEn}
                   </p>
                 </div>
@@ -112,15 +112,18 @@ export default function WhyHadirLeads() {
           </div>
 
           {/* Right Column: Dynamic Image Box with Fallback Icon */}
-          <div className="lg:col-span-5 w-full">
-            <div className="relative bg-gray-100/80 rounded-2xl border border-gray-200/60 p-8 sm:p-12 min-h-[340px] sm:min-h-[420px] flex items-center justify-center shadow-inner overflow-hidden group">
+          <div className="lg:col-span-6 w-full">
+            {/* The picture FILLS the whole box (any size works). No picture = icon */}
+            <div className="relative bg-gray-100/80 rounded-2xl border border-gray-200/60 h-full min-h-[320px] sm:min-h-[420px] flex items-center justify-center shadow-md overflow-hidden group">
               
               {!hasImgError ? (
                 <Image
-                  src="/images/leads/leads.png"
+                  src="/images/leads/leads.jpg"
                   alt="Why HADIR VISITORS Leads"
                   fill
-                  className="object-contain p-6 group-hover:scale-105 transition-transform duration-300"
+                  quality={90}
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   onError={() => setHasImgError(true)}
                 />
               ) : (

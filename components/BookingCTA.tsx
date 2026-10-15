@@ -1,19 +1,21 @@
 'use client';
 
 import { Car } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 
 export default function BookingCTA() {
   const currentLang = useSelector((state: RootState) => state.language.lang);
   const isAr = currentLang === 'AR';
+  const router = useRouter();
 
   const scrollToForm = () => {
     const formElement = document.getElementById('book-form');
     if (formElement) {
       formElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      router.push('/#book-form'); // About / Privacy pages have no form: open the Home form
     }
   };
 

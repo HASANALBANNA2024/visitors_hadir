@@ -88,20 +88,6 @@ export default function FAQ() {
       answerEn: 'Yes, our chauffeurs speak fluent English and Arabic, with native speakers available for international guests.',
       answerAr: 'نعم، يتحدث سائقونا الإنجليزية والعربية بطلاقة، مع توفر متحدثين أصليين للضيوف الدوليين.',
     },
-    {
-      id: 11,
-      questionEn: 'Is fuel and toll included in the pricing?',
-      questionAr: 'هل الوقود والرسوم مشمولة في السعر؟',
-      answerEn: 'All pricing is fully transparent with no hidden costs—fuel and standard route fees are included.',
-      answerAr: 'جميع الأسعار شفافة تماماً بدون تكاليف خفية - الوقود ورسوم الطرق القياسية مشمولة.',
-    },
-    {
-      id: 12,
-      questionEn: 'Can I customize a multi-city route?',
-      questionAr: 'هل يمكنني تخصيص مسار متعدد المدن؟',
-      answerEn: 'Yes, custom multi-stop and inter-city itineraries can be arranged directly via our WhatsApp support.',
-      answerAr: 'نعم، يمكن ترتيب مسارات مخصصة متعددة المحطات عبر دعم الواتساب المباشر.',
-    },
   ];
 
   const [openId, setOpenId] = useState<number | null>(null);
@@ -109,10 +95,6 @@ export default function FAQ() {
   const toggleFAQ = (id: number) => {
     setOpenId(openId === id ? null : id);
   };
-
-  const halfLength = Math.ceil(faqs.length / 2);
-  const leftColFaqs = faqs.slice(0, halfLength);
-  const rightColFaqs = faqs.slice(halfLength);
 
   const renderFAQCard = (item: FAQItem) => {
     const isOpen = openId === item.id;
@@ -124,6 +106,7 @@ export default function FAQ() {
       >
         <button
           onClick={() => toggleFAQ(item.id)}
+          aria-expanded={isOpen}
           className="w-full px-5 py-4 text-left rtl:text-right flex items-center justify-between gap-3 cursor-pointer hover:bg-gray-50/80 transition-colors"
         >
           <span className="text-xs sm:text-sm font-bold text-gray-900 leading-snug">
@@ -174,14 +157,9 @@ export default function FAQ() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-          <div className="space-y-3.5 sm:space-y-4">
-            {leftColFaqs.map((faq) => renderFAQCard(faq))}
-          </div>
-
-          <div className="space-y-3.5 sm:space-y-4">
-            {rightColFaqs.map((faq) => renderFAQCard(faq))}
-          </div>
+        {/* 10 questions, 2 in every row (5 rows). Click = the answer opens below the question. */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 items-start">
+          {faqs.map((faq) => renderFAQCard(faq))}
         </div>
       </div>
     </section>

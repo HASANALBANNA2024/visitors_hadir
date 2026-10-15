@@ -15,6 +15,7 @@ const config: NextConfig = {
   trailingSlash: false,
   images: {
     unoptimized: isExport, // the export has no image server
+    qualities: [75, 90, 95], // quality 90 is used by the car photos (sharper)
     remotePatterns: [{ protocol: 'https', hostname: '**' }],
   },
   /* Security headers (ignored by the static export) */

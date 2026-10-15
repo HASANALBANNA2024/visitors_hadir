@@ -23,6 +23,14 @@ export default function HomePage() {
     document.documentElement.dir = isAr ? 'rtl' : 'ltr';
   }, [isAr]);
 
+  /* Arriving from another page with /#car-gallery etc.: scroll to that section once the page is drawn */
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    const t = setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: id === 'book-form' ? 'center' : 'start' }), 350);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <main className={`min-h-screen bg-gray-50 ${isAr ? 'rtl' : 'ltr'}`} dir={isAr ? 'rtl' : 'ltr'}>
       <Header />

@@ -22,8 +22,10 @@ export interface Vehicle {
 /* ============================================================
  * CAR CARDS. To ADD a card: copy one { ... } block, change it.
  *  - category: 'sedans' | 'suvs' | 'vans' | 'buses'
- *  - imageSrc: put the photo in public/images/cargallery/ and write
- *    '/images/cargallery/name.png'  (no photo = icon is shown)
+ *  - the photo FILLS the top of the card (any size works, 3:2 landscape looks best)
+ *  - imageSrc: put the photo in the folder of its category and write
+ *    '/images/cargallery/<category>/name.jpg'  (no photo = icon is shown)
+ *    folders: cargallery/sedans, cargallery/suvs, cargallery/vans, cargallery/buses
  *  - id must be different for every card
  * The cards appear automatically, no other change needed.
  * ============================================================ */
@@ -56,7 +58,7 @@ const VEHICLES: Vehicle[] = [
       categoryLabelAr: 'سيدان فاخرة',
       badgeEn: 'PREMIUM',
       badgeAr: 'ممتازة',
-      imageSrc: '/images/cargallery/bmw-7.png',
+      imageSrc: '/images/cargallery/sedans/bmw-7.jpg',
       featuresEn: [
         'Seats up to 5 passengers',
         'Senior execs & delegations',
@@ -96,7 +98,7 @@ const VEHICLES: Vehicle[] = [
       categoryLabelAr: 'سيدان تنفيذية',
       badgeEn: 'EXECUTIVE',
       badgeAr: 'تنفيذية',
-      imageSrc: '/images/cargallery/ford-taurus.png',
+      imageSrc: '/images/cargallery/sedans/ford-taurus.png',
       featuresEn: [
         'Seats up to 5 passengers',
         'Daily business travel',
@@ -109,6 +111,26 @@ const VEHICLES: Vehicle[] = [
       ],
     },
     {
+      id: '11',
+      name: 'Lexus LS',
+      category: 'sedans',
+      categoryLabelEn: 'LUXURY SEDAN',
+      categoryLabelAr: 'سيدان فاخرة',
+      badgeEn: 'LUXURY',
+      badgeAr: 'فاخرة',
+      imageSrc: '/images/cargallery/sedans/lexus-ls.jpg',
+      featuresEn: [
+        'Seats up to 4 passengers',
+        'Hotel & business transfers',
+        'Quiet, refined comfort',
+      ],
+      featuresAr: [
+        'تسع حتى 4 ركاب',
+        'تنقلات الفنادق والأعمال',
+        'راحة هادئة وراقية',
+      ],
+    },
+    {
       id: '5',
       name: 'Bentley Bentayga',
       category: 'suvs',
@@ -116,7 +138,7 @@ const VEHICLES: Vehicle[] = [
       categoryLabelAr: 'دفع رباعي فاخر جداً',
       badgeEn: 'ULTRA-LUXURY',
       badgeAr: 'فخامة مطلقة',
-      imageSrc: '/images/cargallery/bentayga.png',
+      imageSrc: '/images/cargallery/suvs/bentayga.png',
       featuresEn: [
         'Seats up to 5 passengers',
         'VIP executives & premium events',
@@ -136,7 +158,7 @@ const VEHICLES: Vehicle[] = [
       categoryLabelAr: 'دفع رباعي فاخر جداً',
       badgeEn: 'PRESTIGE',
       badgeAr: 'برستيج',
-      imageSrc: '/images/cargallery/cullinan.png',
+      imageSrc: '/images/cargallery/suvs/cullinan.jpg',
       featuresEn: [
         'Seats up to 5 passengers',
         'Royals, VIPs & special events',
@@ -148,6 +170,26 @@ const VEHICLES: Vehicle[] = [
         'قمة الفخامة والرفاهية',
       ],
     },
+    {
+      id: '12',
+      name: 'GMC Yukon',
+      category: 'suvs',
+      categoryLabelEn: 'EXECUTIVE SUV',
+      categoryLabelAr: 'دفع رباعي تنفيذي',
+      badgeEn: 'EXECUTIVE',
+      badgeAr: 'تنفيذية',
+      imageSrc: '/images/cargallery/suvs/gmc-yukon.jpg',
+      featuresEn: [
+        'Seats up to 6 passengers',
+        'Families, delegations & airport',
+        'Spacious & commanding ride',
+      ],
+      featuresAr: [
+        'تسع حتى 6 ركاب',
+        'العائلات والوفود والمطار',
+        'رحلة واسعة ومريحة',
+      ],
+    },
     // ---- VANS ----
     {
       id: '7',
@@ -157,7 +199,7 @@ const VEHICLES: Vehicle[] = [
       categoryLabelAr: 'فان متميز',
       badgeEn: 'PREMIUM',
       badgeAr: 'ممتازة',
-      imageSrc: '/images/cargallery/v-class.png',
+      imageSrc: '/images/cargallery/vans/v-class.jpg',
       featuresEn: ['Seats up to 7 passengers', 'Groups & airport transfers', 'Spacious VIP interior'],
       featuresAr: ['تسع حتى 7 ركاب', 'مجموعات ونقل المطار', 'مقصورة VIP واسعة'],
     },
@@ -169,7 +211,7 @@ const VEHICLES: Vehicle[] = [
       categoryLabelAr: 'فان VIP',
       badgeEn: 'GROUP',
       badgeAr: 'مجموعات',
-      imageSrc: '/images/cargallery/executive-van.png',
+      imageSrc: '/images/cargallery/vans/executive-van.jpg',
       featuresEn: ['Seats up to 10 passengers', 'Corporate teams & events', 'Comfort for longer trips'],
       featuresAr: ['تسع حتى 10 ركاب', 'فرق الشركات والفعاليات', 'راحة للرحلات الطويلة'],
     },
@@ -182,7 +224,7 @@ const VEHICLES: Vehicle[] = [
       categoryLabelAr: 'حافلة متميزة',
       badgeEn: 'GROUP',
       badgeAr: 'مجموعات',
-      imageSrc: '/images/cargallery/coaster-bus.png',
+      imageSrc: '/images/cargallery/buses/coaster-bus.png',
       featuresEn: ['Seats up to 22 passengers', 'Delegations & events', 'Air-conditioned comfort'],
       featuresAr: ['تسع حتى 22 راكباً', 'الوفود والفعاليات', 'تكييف ومقاعد مريحة'],
     },
@@ -194,7 +236,7 @@ const VEHICLES: Vehicle[] = [
       categoryLabelAr: 'حافلة متميزة',
       badgeEn: 'VIP',
       badgeAr: 'VIP',
-      imageSrc: '/images/cargallery/vip-coach.png',
+      imageSrc: '/images/cargallery/buses/vip-coach.png',
       featuresEn: ['Seats up to 45 passengers', 'Large corporate groups', 'Luggage space & Wi-Fi'],
       featuresAr: ['تسع حتى 45 راكباً', 'مجموعات الشركات الكبيرة', 'مساحة أمتعة وواي فاي'],
     },
@@ -315,9 +357,9 @@ export default function CarGallery() {
                 className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group"
               >
                 {/* Top Box for Image/Icon */}
-                <div className="relative bg-gradient-to-b from-gray-100/80 to-gray-50 h-48 w-full flex items-center justify-center p-4">
-                  {/* Category Badge */}
-                  <span className="absolute top-3 right-3 rtl:right-auto rtl:left-3 bg-[#d9a036] text-white text-[9px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider z-10 shadow-sm">
+                <div className="relative bg-gradient-to-b from-gray-100/80 to-gray-50 h-52 w-full flex items-center justify-center overflow-hidden">
+                  {/* Badge: always on the picture, top right (top left in Arabic) */}
+                  <span className="absolute top-3 right-3 rtl:right-auto rtl:left-3 bg-[#d9a036] text-white text-[9px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider z-10 shadow-md">
                     {isAr ? car.badgeAr : car.badgeEn}
                   </span>
 
@@ -327,11 +369,13 @@ export default function CarGallery() {
                       src={car.imageSrc}
                       alt={car.name}
                       fill
-                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                      quality={90} // sharp photos (allowed in next.config.ts -> images.qualities)
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       onError={() => handleImageError(car.id)}
                     />
                   ) : (
-                    <div className="flex flex-col items-center justify-center gap-2 text-[#d9a036]">
+                    <div className="flex flex-col items-center justify-center gap-2 text-[#d9a036] p-4">
                       <div className="w-16 h-16 rounded-2xl bg-[#d9a036]/10 flex items-center justify-center border border-[#d9a036]/20 shadow-inner group-hover:scale-110 transition-transform duration-300">
                         <Car className="w-9 h-9 text-[#d9a036]" />
                       </div>
