@@ -121,8 +121,8 @@ const DATA: LegalData = {
       title: { en: 'Contact Us', ar: 'تواصل معنا' },
       paragraphs: [
         {
-          en: 'Questions about this policy? Email info@hadirvisitors.com or call +965 9677 0078. You can also reach us on WhatsApp, 24/7.',
-          ar: 'لديك أسئلة حول هذه السياسة؟ راسلنا على info@hadirvisitors.com أو اتصل على ‎+965 9677 0078. يمكنك أيضاً التواصل معنا عبر الواتساب على مدار الساعة.',
+          en: 'Questions about this policy? Email info@hadirvisitors.com or call +965 972 67879. You can also reach us on WhatsApp, 24/7.',
+          ar: 'لديك أسئلة حول هذه السياسة؟ راسلنا على info@hadirvisitors.com أو اتصل على ‎+965 972 67879. يمكنك أيضاً التواصل معنا عبر الواتساب على مدار الساعة.',
         },
       ],
     },
