@@ -251,9 +251,9 @@ export default function BookingForm({ service }: { service?: string }) {
 
         <div className="flex flex-wrap items-center justify-between gap-1 pt-2 text-[9px] text-gray-500 font-semibold">
           <span className="flex items-center gap-1">
-            <CheckCircle2 className="w-3 h-3 text-green-500" />
-            {isAr ? 'الرد خلال 10 دقائق' : 'Response within 10 minutes'}
-          </span>
+           <CheckCircle2 className="w-3 h-3 text-green-500" />
+           {isAr ? 'سيقوم فريقنا بالرد عليك في أقرب وقت' : 'Our team will respond to you promptly'}
+           </span>
           <span className="flex items-center gap-1">
             <CheckCircle2 className="w-3 h-3 text-green-500" />
             {isAr ? 'سائقون محترفون' : 'Professional drivers'}

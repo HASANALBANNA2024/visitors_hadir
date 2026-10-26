@@ -73,14 +73,14 @@ const DATA: LegalData = {
       ],
     },
     {
-      title: { en: 'Sharing Your Information', ar: 'مشاركة معلوماتك' },
-      paragraphs: [
-        {
-          en: 'We do not sell your personal information. We share it only with the chauffeur and operations team assigned to your trip, with service providers who help us run the business, or when the law requires it.',
-          ar: 'نحن لا نبيع معلوماتك الشخصية. نشاركها فقط مع السائق وفريق العمليات المكلف برحلتك، ومع مزودي الخدمات الذين يساعدوننا في إدارة العمل، أو عندما يطلب القانون ذلك.',
-        },
-      ],
+  title: { en: 'Sharing Your Information', ar: 'مشاركة معلوماتك' },
+  paragraphs: [
+    {
+      en: 'We respect your privacy and do not share your personal information with any unauthorized third party. Your information is accessed only by the assigned chauffeur and operations team when necessary to provide our services, or when required by law.',
+      ar: 'نحن نحترم خصوصيتك ولا نشارك معلوماتك الشخصية مع أي طرف ثالث غير مصرح له. لا يتم الوصول إلى معلوماتك إلا من قبل السائق وفريق العمليات المكلفين عند الضرورة لتقديم خدماتنا، أو عندما يطلب القانون ذلك.',
     },
+  ],
+},
     {
       title: { en: 'Cookies', ar: 'ملفات تعريف الارتباط' },
       paragraphs: [

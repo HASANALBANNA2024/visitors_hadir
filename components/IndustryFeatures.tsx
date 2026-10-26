@@ -71,8 +71,8 @@ export default function IndustryFeatures() {
       fallbackIcon: ShieldCheck,
       titleEn: 'Safety First',
       titleAr: 'السلامة أولاً',
-      descEn: 'Background-checked drivers, regular vehicle maintenance, insurance coverage',
-      descAr: 'سائقون مفحوصو السجل، صيانة دورية للمركبات، وتغطية تأمينية شاملة',
+      descEn: 'Our drivers are professionally trained, our vehicles are regularly maintained, and our standby team is always ready to assist in case of any roadside breakdown',
+      descAr: 'سائقونا مدربون باحترافية، ومركباتنا تخضع للصيانة المنتظمة، وفريق الطوارئ لدينا مستعد دائمًا للمساعدة في حال حدوث أي عطل على الطريق',
     },
     {
       id: 6,

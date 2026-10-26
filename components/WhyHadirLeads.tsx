@@ -23,14 +23,14 @@ export default function WhyHadirLeads() {
   // 5 Feature Points
   const features: LeadFeature[] = [
     {
-      id: 1,
-      titleEn: 'Newest Fleet',
-      titleAr: 'أحدث أسطول',
-      descEn:
-        'Brand new luxury vehicles with cutting-edge technology, regularly serviced, never more than 3 years old',
-      descAr:
-        'مركبات فاخرة جديدة تماماً مزودة بأحدث التقنيات، تمت صيانته بانتظام، ولا يزيد عمرها عن 3 سنوات',
-    },
+   id: 1,
+   titleEn: 'Newest Fleet',
+   titleAr: 'أحدث أسطول',
+   descEn:
+     'Brand new luxury vehicles with cutting-edge technology, regularly serviced',
+   descAr:
+     'مركبات فاخرة جديدة تماماً مزودة بأحدث التقنيات، تمت صيانته بانتظام',
+ },
     {
       id: 2,
       titleEn: 'Vetted Professionals',
